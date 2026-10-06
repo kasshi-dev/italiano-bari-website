@@ -1,16 +1,16 @@
 export interface Dish {
   id: string;
-  name: { en: string; ar: string; ur: string; hi: string };
-  desc: { en: string; ar: string; ur: string; hi: string };
+  name: { en: string; ar: string };
+  desc: { en: string; ar: string };
   price?: number;
   prices?: { small: number; large: number };
   category: "pizza" | "pasta" | "salad" | "drink";
   image: string;
-  badge?: { en: string; ar: string; ur: string; hi: string };
+  badge?: { en: string; ar: string };
   options?: string[];
 }
 
-export type Language = "en" | "ar" | "ur" | "hi";
+export type Language = "en" | "ar";
 
 export const validMenuFilter = ["all", "pizza", "pasta", "salad", "drink"] as const;
 export type MenuFilter = (typeof validMenuFilter)[number];
@@ -20,10 +20,10 @@ export function normalizeMenuSearch(query: string): string {
 }
 
 export const menuCategories = [
-  { id: "pizza", label: { en: "Pizza", ar: "البيتزا", ur: "پٹزا", hi: "पिज्जा" } },
-  { id: "pasta", label: { en: "Pasta", ar: "الباستا", ur: "پاستا", hi: "पास्ता" } },
-  { id: "salad", label: { en: "Salads & sides", ar: "السلطات", ur: "سلاد", hi: "सलाद" } },
-  { id: "drink", label: { en: "Drinks", ar: "المشروبات", ur: "مشروبات", hi: "पेय" } },
+  { id: "pizza", label: { en: "Pizza", ar: "البيتزا" } },
+  { id: "pasta", label: { en: "Pasta", ar: "الباستا" } },
+  { id: "salad", label: { en: "Salads & sides", ar: "السلطات" } },
+  { id: "drink", label: { en: "Drinks", ar: "المشروبات" } },
 ] as const;
 
 export const categories = menuCategories;
@@ -67,30 +67,6 @@ export const menuCopy: Record<
     removeFav: "إزالة من المفضلة",
     directions: "الاتجاهات",
   },
-  ur: {
-    nav: "ہمارا مینو",
-    title: "کچھ لذیذ آپ کا منتظر ہے۔",
-    subtitle: "اپنی پسندیدہ ڈش تلاش کریں۔ یا کچھ نیا آزمائیں۔",
-    search: "ڈش تلاش کریں...",
-    all: "تمام ڈشز",
-    favs: "پسندیدہ",
-    noFavs: "ابھی تک کوئی پسندیدہ ڈش نہیں۔ محفوظ کرنے کے لیے دل کے نشان پر ٹیپ کریں۔",
-    addFav: "پسندیدہ میں شامل کریں",
-    removeFav: "پسندیدہ سے ہٹائیں",
-    directions: "راستہ حاصل کریں",
-  },
-  hi: {
-    nav: "हमारा मेनू",
-    title: "कुछ स्वादिष्ट आपका इंतज़ार कर रहा है।",
-    subtitle: "अपनी पसंदीदा डिश खोजें। या कुछ नया ट्राई करें।",
-    search: "डिश खोजें...",
-    all: "सभी व्यंजन",
-    favs: "पसंदीदा",
-    noFavs: "अभी कोई पसंदीदा डिश नहीं है। सेव करने के लिए दिल पर टैप करें।",
-    addFav: "पसंदीदा में जोड़ें",
-    removeFav: "पसंदीदा से हटाएं",
-    directions: "दिशा-निर्देश",
-  },
 };
 
 export const menuSource = menuCopy;
@@ -104,27 +80,23 @@ export const restaurantLinks = {
 export const dishes: Dish[] = [
   {
     id: "bari-pizza",
-    name: { en: "Bari Pizza", ar: "باري بيتزا", ur: "باری پٹزا", hi: "बारी पिज्जा" },
+    name: { en: "Bari Pizza", ar: "باري بيتزا" },
     desc: {
-      en: "Authentic Italian Neapolitan-style pizza crafted with a traditional leopard-spotted artisan crust. Topped with rich Italian tomato sauce, melted mozzarella fior di latte, savory seasoned chicken, and finished with a chef’s signature sauce drizzle.",
-      ar: "بيتزا نابوليتانية إيطالية أصلية بعجينة تقليدية، مغطاة بصلصة الطماطم الغنية وجبن الموزاريلا والدجاج المتبل مع صوص الشيف الخاص.",
-      ur: "روایتی نیپولیٹن انداز کی پٹزا جس پر ٹماٹر ساس، موزاریلا چیز، مصالحے دار چکن اور شیف کا خاص ساس شامل ہے۔",
-      hi: "पारंपरिक इतालवी नेपोलिटन पिज्जा, टमाटर सॉस, मोज़ारेला पनीर, चिकन और शेफ के सिग्नेचर सॉस के साथ।",
+      en: "Authentic Italian Neapolitan-style pizza.",
+      ar: "بيتزا نابوليتانية إيطالية أصلية.",
     },
     prices: { small: 29, large: 37 },
     category: "pizza",
     image: "/dishes/bari-pizza.png",
-    badge: { en: "NEW · SPECIAL", ar: "جديد · مميز", ur: "نیا · خاص", hi: "نیا · विशेष" },
+    badge: { en: "NEW · SPECIAL", ar: "جديد · مميز" },
     options: ["Spicy", "Non-spicy"],
   },
   {
     id: "pepperoni-pizza",
-    name: { en: "Pepperoni Pizza", ar: "بيتزا بيبروني", ur: "پیپرونی پٹزا", hi: "पेपेरोनी पिज्जा" },
+    name: { en: "Pepperoni Pizza", ar: "بيتزا بيبروني" },
     desc: {
-      en: "Wood-fired Neapolitan pizza topped with rich tomato sauce, melted mozzarella cheese, and crispy beef pepperoni slices.",
-      ar: "بيتزا نابوليتانية بصلصة الطماطم الغنية، جبن الموزاريلا الذائب وشريحات البيبروني المقرمشة.",
-      ur: "ٹماٹر ساس، پگھلی ہوئی موزاریلا چیز اور بیف پیپرونی کے ساتھ وڈ فائرڈ پٹزا۔",
-      hi: "टमाटर सॉस, मोज़ारेला पनीर और बीफ पेपेरोनी स्लाइस के साथ वुड-फायर्ड पिज्जा।",
+      en: "Wood-fired Neapolitan pizza with pepperoni.",
+      ar: "بيتزا نابوليتانية بالبيبروني.",
     },
     prices: { small: 29, large: 37 },
     category: "pizza",
@@ -132,10 +104,29 @@ export const dishes: Dish[] = [
   },
   {
     id: "spaghetti-red-sauce",
-    name: { en: "Spaghetti Pasta | Red Sauce Pasta", ar: "سباجيتي صلصة حمراء", ur: "اسپیگیٹی ریڈ ساس", hi: "स्पैगेटी रेड सॉस" },
+    name: { en: "Spaghetti Pasta", ar: "سباجيتي صلصة حمراء" },
     desc: {
-      en: "Classic spaghetti tossed in a rich tomato and minced meat sauce, topped with grilled chicken, parmesan cheese, and fresh basil leaves.",
-      ar: "سباجيتي كلاسيكية بصلصة الطماطم واللحم المفروم مع دجاج مشوي وجبن بارميزان وريحان.",
-      ur: "ٹماٹر اور قیمہ ساس میں تیار کردہ اسپیگیٹی، گرل چکن اور پارمیسان چیز کے ساتھ۔",
-      hi: "टमाटर सॉस और कीमा में स्पैगेटी, ग्रिल्
-        
+      en: "Classic spaghetti tossed in a rich tomato sauce.",
+      ar: "سباجيتي كلاسيكية بصلصة الطماطم.",
+    },
+    price: 27,
+    category: "pasta",
+    image: "/dishes/spaghetti.png",
+  },
+  {
+    id: "penne-pink-sauce",
+    name: {
+      en: "Penne Pasta With Chicken",
+      ar: "بيني بينك صوص مع دجاج",
+    },
+    desc: {
+      en: "Penne pasta in a mixture of tomato and cream sauce.",
+      ar: "باستا بيني بصلصة بينك ممزوجة مع قطع الدجاج.",
+    },
+    price: 27,
+    category: "pasta",
+    image: "/dishes/penne.png",
+  },
+];
+
+export const menuItems = dishes;
