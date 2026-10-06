@@ -8,41 +8,34 @@ export interface Dish {
   image: string;
   badge?: { en: string; ar: string; ur: string; hi: string };
   options?: string[];
+  nameAr?: string;
+  note?: string;
+  noteAr?: string;
 }
+
+export type MenuItem = Dish;
+export type MenuPrice = number | { small: number; large: number };
 
 export type Language = "en" | "ar" | "ur" | "hi";
 
-export const validMenuFilter = ["all", "pizza", "pasta", "salad", "drink"] as const;
+export const validMenuFilter = ["all", "saved", "pizza", "pasta", "salad", "drink"] as const;
 export type MenuFilter = (typeof validMenuFilter)[number];
+export type MenuCategory = "pizza" | "pasta" | "salad" | "drink";
 
 export function normalizeMenuSearch(query: string): string {
-  return query.trim().toLowerCase();
+  return (query || "").trim().toLowerCase();
 }
 
-export const menuCategories = [
+export const menuCategories: { id: MenuCategory; label: Record<Language, string> }[] = [
   { id: "pizza", label: { en: "Pizza", ar: "البيتزا", ur: "پٹزا", hi: "पिज्जा" } },
-  { id: "pasta", label: { en: "Pasta", ar: "الباستا", ur: "پاستا", hi: "पाستا" } },
+  { id: "pasta", label: { en: "Pasta", ar: "الباستا", ur: "پاستا", hi: "पास्ता" } },
   { id: "salad", label: { en: "Salads & sides", ar: "السلطات", ur: "سلاد", hi: "सलाद" } },
   { id: "drink", label: { en: "Drinks", ar: "المشروبات", ur: "مشروبات", hi: "पेय" } },
-] as const;
+];
 
 export const categories = menuCategories;
 
-export const menuCopy: Record<
-  Language,
-  {
-    nav: string;
-    title: string;
-    subtitle: string;
-    search: string;
-    all: string;
-    favs: string;
-    noFavs: string;
-    addFav: string;
-    removeFav: string;
-    directions: string;
-  }
-> = {
+export const menuCopy: Record<Language, Record<string, string>> = {
   en: {
     nav: "Our menu",
     title: "Something delicious awaits.",
@@ -54,6 +47,19 @@ export const menuCopy: Record<
     addFav: "Add to favourites",
     removeFav: "Remove from favourites",
     directions: "Get directions",
+    savedToast: "Saved to favourites",
+    removedToast: "Removed from favourites",
+    explore: "Explore Menu",
+    heroKicker: "Authentic Italian Taste",
+    heroFirst: "Italiano",
+    heroSecond: "Bari",
+    heroDescription: "Experience the true essence of Italian cuisine with our artisanal pizzas and handcrafted pastas.",
+    join: "Join Loyalty Program",
+    heroTag: "Special Offer",
+    special: "Featured Selection",
+    from: "Dammam, KSA",
+    loyaltyTitle: "Earn Rewards Every Visit",
+    loyaltyDescription: "Collect points with every order and redeem them for free meals, discounts, and exclusive perks.",
   },
   ar: {
     nav: "قائمتنا",
@@ -66,6 +72,19 @@ export const menuCopy: Record<
     addFav: "إضافة للمفضلة",
     removeFav: "إزالة من المفضلة",
     directions: "الاتجاهات",
+    savedToast: "تم الحفظ في المفضلة",
+    removedToast: "تمت الإزالة من المفضلة",
+    explore: "استكشف القائمة",
+    heroKicker: "طعم إيطالي أصيل",
+    heroFirst: "إيتاليانو",
+    heroSecond: "باري",
+    heroDescription: "تذوق الجوهر الحقيقي للمطبخ الإيطالي مع البيتزا والباستا المصنوعة يدوياً.",
+    join: "انضم لبرنامج الولاء",
+    heroTag: "عرض خاص",
+    special: "اختيارات مميزة",
+    from: "الدمام، المملكة العربية السعودية",
+    loyaltyTitle: "اجمع النقاط مع كل زيارة",
+    loyaltyDescription: "اجمع النقاط مع كل طلب واستبدلها بوجبات مجانية وخصومات ومزايا حصرية.",
   },
   ur: {
     nav: "ہمارا مینو",
@@ -78,6 +97,19 @@ export const menuCopy: Record<
     addFav: "پسندیدہ میں شامل کریں",
     removeFav: "پسندیدہ سے ہٹائیں",
     directions: "راستہ حاصل کریں",
+    savedToast: "پسندیدہ میں محفوظ کر لیا گیا",
+    removedToast: "پسندیدہ سے ہٹا دیا گیا",
+    explore: "مینو دیکھیں",
+    heroKicker: "خالص اطالوی ذائقہ",
+    heroFirst: "اطالوی",
+    heroSecond: "باری",
+    heroDescription: "ہماری تازہ تیار کردہ پٹزا اور پاستا کے ساتھ اطالوی کھانوں کا بہترین تجربہ حاصل کریں۔",
+    join: "وفاداری پروگرام میں شامل ہوں",
+    heroTag: "خاص پیشکش",
+    special: "خاص انتخاب",
+    from: "دمام، سعودی عرب",
+    loyaltyTitle: "ہر آرڈر پر انعامات حاصل کریں",
+    loyaltyDescription: "ہر آرڈر پر پوائنٹس حاصل کریں اور مفت کھانا اور ڈسکاؤنٹ حاصل کریں۔",
   },
   hi: {
     nav: "हमारा मेनू",
@@ -88,8 +120,21 @@ export const menuCopy: Record<
     favs: "पसंदीदा",
     noFavs: "अभी कोई पसंदीदा डिश नहीं है। सेव करने के लिए दिल पर टैप करें।",
     addFav: "पसंदीदा में जोड़ें",
-    removeFav: "پسندیدہ سے ہٹائیں",
+    removeFav: "पसंदीदा से हटाएं",
     directions: "दिशा-निर्देश",
+    savedToast: "पसंदीदा में सहेजा गया",
+    removedToast: "पसंदीदा से हटा दिया गया",
+    explore: "मेनू देखें",
+    heroKicker: "असली इतालवी स्वाद",
+    heroFirst: "इतालवी",
+    heroSecond: "बारी",
+    heroDescription: "हमारे ताज़ा पिज्जा और पास्ता के साथ असली इतालवी व्यंजनों का आनंद लें।",
+    join: "वफादारी कार्यक्रम में शामिल हों",
+    heroTag: "विशेष प्रस्ताव",
+    special: "विशेष चयन",
+    from: "दम्माम, सऊदी अरब",
+    loyaltyTitle: "हर ऑर्डर पर पुरस्कार अर्जित करें",
+    loyaltyDescription: "हर ऑर्डर पर अंक अर्जित करें और मुफ़्त भोजन और छूट प्राप्त करें।",
   },
 };
 
@@ -99,6 +144,7 @@ export const restaurantLinks = {
   location: "https://maps.google.com/?q=Italiano+Bari+Dammam",
   instagram: "https://instagram.com",
   tiktok: "https://tiktok.com",
+  maps: "https://maps.google.com/?q=Italiano+Bari+Dammam",
 };
 
 export const dishes: Dish[] = [
@@ -163,7 +209,7 @@ export const dishes: Dish[] = [
       en: "Classic wood-fired Neapolitan pizza topped with rich tomato sauce, melted fresh mozzarella, extra virgin olive oil, and fresh basil leaves.",
       ar: "بيتزا كلاسيكية بصلصة الطماطم الغنية، موزاريلا طازجة، زيت زيتون بكر وأوراق الريحان الطازجة.",
       ur: "کلاسیکی ٹماٹر ساس، تازہ موزاریلا چیز، زیتون کا تیل اور باسل کے پتوں کے ساتھ پٹزا۔",
-      hi: "टमाटर सॉस, ताज़ा मोज़ारेلا, जैतून का तेल और ताज़ा तुलसी के साथ क्लासिक पिज्जा।",
+      hi: "टमाटर सॉस, ताज़ा मोज़ारेला, जैतून का तेल और ताज़ा तुलसी के साथ क्लासिक पिज्जा।",
     },
     prices: { small: 29, large: 37 },
     category: "pizza",
@@ -197,7 +243,7 @@ export const dishes: Dish[] = [
   },
   {
     id: "tagliatelle-chicken",
-    name: { en: "Chicken And Mushroom Fettuccine Pasta", ar: "تالياتيلي دجاج", ur: "چکن اینڈ مشروم فیٹوچینی", hi: "चिकन एंड मशरूम पास्ता" },
+    name: { en: "Chicken And Mushroom Fettuccine Pasta", ar: "تالياتيلي دجاج", ur: "چکن اینڈ مشروم فیٹوچینی", hi: "چکن اینڈ مشروم पास्ता" },
     desc: {
       en: "Fettuccine pasta tossed in a creamy mushroom sauce, served with grilled chicken cubes, parmesan, and fresh basil leaves.",
       ar: "باستا فيتوتشيني بصلصة المشروم الكريمة مع قطع الدجاج المشوي وجبن بارميزان.",
