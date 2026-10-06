@@ -12,7 +12,7 @@ export interface Dish {
 
 export type Language = "en" | "ar" | "ur" | "hi";
 
-export const validMenuFilter = ["all", "saved", "pizza", "pasta", "salad", "drink"] as const;
+export const validMenuFilter = ["all", "pizza", "pasta", "salad", "drink"] as const;
 export type MenuFilter = (typeof validMenuFilter)[number];
 
 export function normalizeMenuSearch(query: string): string {
@@ -28,7 +28,21 @@ export const menuCategories = [
 
 export const categories = menuCategories;
 
-export const menuCopy: Record<Language, Record<string, any>> = {
+export const menuCopy: Record<
+  Language,
+  {
+    nav: string;
+    title: string;
+    subtitle: string;
+    search: string;
+    all: string;
+    favs: string;
+    noFavs: string;
+    addFav: string;
+    removeFav: string;
+    directions: string;
+  }
+> = {
   en: {
     nav: "Our menu",
     title: "Something delicious awaits.",
@@ -40,22 +54,6 @@ export const menuCopy: Record<Language, Record<string, any>> = {
     addFav: "Add to favourites",
     removeFav: "Remove from favourites",
     directions: "Get directions",
-    bottomSecond: "Italiano Bari",
-    bottomDescription: "Authentic Italian Taste",
-    join: "Join Loyalty Program",
-    priceNote: "Prices subject to change",
-    original: "Original",
-    imageCaption: "Delicious Dish",
-    spicy: "Spicy",
-    selectSize: "Select Size",
-    small: "Small",
-    large: "Large",
-    regular: "Regular",
-    detailNote: "Fresh ingredients",
-    unsave: "Remove from saved",
-    save: "Save dish",
-    savedDevice: "Saved on this device",
-    loyaltyButton: "Loyalty Program",
   },
   ar: {
     nav: "قائمتنا",
@@ -68,22 +66,6 @@ export const menuCopy: Record<Language, Record<string, any>> = {
     addFav: "إضافة للمفضلة",
     removeFav: "إزالة من المفضلة",
     directions: "الاتجاهات",
-    bottomSecond: "إيتاليانو باري",
-    bottomDescription: "طعم إيطالي أصيل",
-    join: "انضم لبرنامج الولاء",
-    priceNote: "الأسعار قابلة للتغيير",
-    original: "الأصلي",
-    imageCaption: "طبق لذیذ",
-    spicy: "حار",
-    selectSize: "اختر الحجم",
-    small: "صغير",
-    large: "كبير",
-    regular: "عادي",
-    detailNote: "مكونات طازجة",
-    unsave: "إزالة من المحفوظات",
-    save: "حفظ الطبق",
-    savedDevice: "محفوظ على هذا الجهاز",
-    loyaltyButton: "برنامج الولاء",
   },
   ur: {
     nav: "ہمارا مینو",
@@ -96,22 +78,6 @@ export const menuCopy: Record<Language, Record<string, any>> = {
     addFav: "پسندیدہ میں شامل کریں",
     removeFav: "پسندیدہ سے ہٹائیں",
     directions: "راستہ حاصل کریں",
-    bottomSecond: "اطالوی باری",
-    bottomDescription: "خالص اطالوی ذائقہ",
-    join: "وفاداری پروگرام میں شامل ہوں",
-    priceNote: "قیمتیں تبدیل ہو سکتی ہیں",
-    original: "اصل",
-    imageCaption: "لذیذ ڈش",
-    spicy: "مسالہ دار",
-    selectSize: "سائز منتخب کریں",
-    small: "چھوٹا",
-    large: "بڑا",
-    regular: "عام",
-    detailNote: "تازہ اجزاء",
-    unsave: "محفوظ سے ہٹائیں",
-    save: "ڈش محفوظ کریں",
-    savedDevice: "اس ڈیوائس پر محفوظ ہے",
-    loyaltyButton: "وفاداری پروگرام",
   },
   hi: {
     nav: "हमारा मेनू",
@@ -124,22 +90,6 @@ export const menuCopy: Record<Language, Record<string, any>> = {
     addFav: "पसंदीदा में जोड़ें",
     removeFav: "पसंदीदा से हटाएं",
     directions: "दिशा-निर्देश",
-    bottomSecond: "इतालवी बारी",
-    bottomDescription: "असली इतालवी स्वाद",
-    join: "वफादारी कार्यक्रम में शामिल हों",
-    priceNote: "कीमतें बदल सकती हैं",
-    original: "मूल",
-    imageCaption: "स्वादिष्ट व्यंजन",
-    spicy: "मसालेदार",
-    selectSize: "आकार चुनें",
-    small: "छोटा",
-    large: "बड़ा",
-    regular: "सामान्य",
-    detailNote: "ताज़ा सामग्री",
-    unsave: "सहेजे गए से हटाएं",
-    save: "व्यंजन सहेजें",
-    savedDevice: "इस डिवाइस पर सहेजा गया",
-    loyaltyButton: "वफादारी कार्यक्रम",
   },
 };
 
@@ -156,10 +106,10 @@ export const dishes: Dish[] = [
     id: "bari-pizza",
     name: { en: "Bari Pizza", ar: "باري بيتزا", ur: "باری پٹزا", hi: "बारी पिज्जा" },
     desc: {
-      en: "Authentic Italian Neapolitan-style pizza crafted with a traditional leopard-spotted artisan crust.",
-      ar: "بيتزا نابوليتانية إيطالية أصلية بعجينة تقليدية.",
-      ur: "روایتی نیپولیٹن انداز کی پٹزا۔",
-      hi: "पारंपरिक इतालवी नेपोलिटन पिज्जा।",
+      en: "Authentic Italian Neapolitan-style pizza crafted with a traditional leopard-spotted artisan crust. Topped with rich Italian tomato sauce, melted mozzarella fior di latte, savory seasoned chicken, and finished with a chef’s signature sauce drizzle.",
+      ar: "بيتزا نابوليتانية إيطالية أصلية بعجينة تقليدية، مغطاة بصلصة الطماطم الغنية وجبن الموزاريلا والدجاج المتبل مع صوص الشيف الخاص.",
+      ur: "روایتی نیپولیٹن انداز کی پٹزا جس پر ٹماٹر ساس، موزاریلا چیز، مصالحے دار چکن اور شیف کا خاص ساس شامل ہے۔",
+      hi: "पारंपरिक इतालवी नेपोलिटन पिज्जा, टमाटर सॉस, मोज़ारेला पनीर, चिकन और शेफ के सिग्नेचर सॉस के साथ।",
     },
     prices: { small: 29, large: 37 },
     category: "pizza",
@@ -171,10 +121,10 @@ export const dishes: Dish[] = [
     id: "pepperoni-pizza",
     name: { en: "Pepperoni Pizza", ar: "بيتزا بيبروني", ur: "پیپرونی پٹزا", hi: "पेपेरोनी पिज्जा" },
     desc: {
-      en: "Wood-fired Neapolitan pizza topped with rich tomato sauce and beef pepperoni.",
-      ar: "بيتزا نابوليتانية بصلصة الطماطم الغنية والبيبروني.",
-      ur: "ٹماٹر ساس اور بیف پیپرونی کے ساتھ پٹزا۔",
-      hi: "टमाटर सॉस और बीफ पेपेरोनी के साथ पिज्जा।",
+      en: "Wood-fired Neapolitan pizza topped with rich tomato sauce, melted mozzarella cheese, and crispy beef pepperoni slices.",
+      ar: "بيتزا نابوليتانية بصلصة الطماطم الغنية، جبن الموزاريلا الذائب وشريحات البيبروني المقرمشة.",
+      ur: "ٹماٹر ساس، پگھلی ہوئی موزاریلا چیز اور بیف پیپرونی کے ساتھ وڈ فائرڈ پٹزا۔",
+      hi: "टमाटर सॉस, मोज़ारेला पनीर और बीफ पेपेरोनी स्लाइस के साथ वुड-फायर्ड पिज्जा।",
     },
     prices: { small: 29, large: 37 },
     category: "pizza",
@@ -182,17 +132,10 @@ export const dishes: Dish[] = [
   },
   {
     id: "spaghetti-red-sauce",
-    name: { en: "Spaghetti Pasta", ar: "سباجيتي صلصة حمراء", ur: "اسپیگیٹی", hi: "स्पैगेटी" },
+    name: { en: "Spaghetti Pasta | Red Sauce Pasta", ar: "سباجيتي صلصة حمراء", ur: "اسپیگیٹی ریڈ ساس", hi: "स्पैगेटी रेड सॉस" },
     desc: {
-      en: "Classic spaghetti tossed in a rich tomato sauce.",
-      ar: "سباجيتي كلاسيكية بصلصة الطماطم.",
-      ur: "کلاسیکی ٹماٹر ساس اسپیگیٹی۔",
-      hi: "क्लासिक टमाटर सॉस स्पैगेटी।",
-    },
-    price: 27,
-    category: "pasta",
-    image: "/dishes/spaghetti.png",
-  },
-];
-
-export const menuItems = dishes;
+      en: "Classic spaghetti tossed in a rich tomato and minced meat sauce, topped with grilled chicken, parmesan cheese, and fresh basil leaves.",
+      ar: "سباجيتي كلاسيكية بصلصة الطماطم واللحم المفروم مع دجاج مشوي وجبن بارميزان وريحان.",
+      ur: "ٹماٹر اور قیمہ ساس میں تیار کردہ اسپیگیٹی، گرل چکن اور پارمیسان چیز کے ساتھ۔",
+      hi: "टमाटर सॉस और कीमा में स्पैगेटी, ग्रिल्
+        
