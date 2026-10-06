@@ -286,59 +286,35 @@
       ],
       "image": null
     },
-    {
-      "id": "cola",
-      "category": "drinks",
-      "name": "Cola",
-      "nameAr": "كولا",
-      "noteAr": "",
-      "note": "",
-      "badge": "",
-      "prices": [
-        {
-          "size": "Regular",
-          "sizeAr": "عادي",
-          "price": 4,
-          "oldPrice": null
-        }
-      ],
-      "image": null
-    },
-    {
-      "id": "sprite",
-      "category": "drinks",
-      "name": "Sprite",
-      "nameAr": "سبرايت",
-      "noteAr": "",
-      "note": "",
-      "badge": "",
-      "prices": [
-        {
-          "size": "Regular",
-          "sizeAr": "عادي",
-          "price": 4,
-          "oldPrice": null
-        }
-      ],
-      "image": null
-    },
-    {
-      "id": "water",
-      "category": "drinks",
-      "name": "Water",
-      "nameAr": "ماء",
-      "noteAr": "",
-      "note": "",
-      "badge": "",
-      "prices": [
-        {
-          "size": "Regular",
-          "sizeAr": "عادي",
-          "price": 2,
-          "oldPrice": null
-        }
-      ],
-      "image": null
-    }
-  ]
+   {
+  "id": "lemon-juice",
+  "category": "drinks",
+  "name": "Lemon Juice",
+  "nameAr": "عصير ليمون",
+  "image": "/menu/lemon-juice.webp",
+  "prices": [{ "size": "Regular", "sizeAr": "عادي", "price": 9, "oldPrice": null }]
+},
+{
+  "id": "cola",
+  "category": "drinks",
+  "name": "Cola",
+  "nameAr": "كولا",
+  "image": "/menu/cola.webp",
+  "prices": [{ "size": "Regular", "sizeAr": "عادي", "price": 4, "oldPrice": null }]
+},
+{
+  "id": "sprite",
+  "category": "drinks",
+  "name": "Sprite",
+  "nameAr": "سبرايت",
+  "image": "/menu/sprite.webp",
+  "prices": [{ "size": "Regular", "sizeAr": "عادي", "price": 4, "oldPrice": null }]
+},
+{
+  "id": "water",
+  "category": "drinks",
+  "name": "Water",
+  "nameAr": "ماء",
+  "image": "/menu/water.webp",
+  "prices": [{ "size": "Regular", "sizeAr": "عادي", "price": 2, "oldPrice": null }]
 }
