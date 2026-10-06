@@ -1,35 +1,226 @@
-import data from "./menu-data.json";
-import type { Language } from "./types";
+import type { Dish, Language } from "./types";
 
-export type MenuCategory = "pizza" | "pasta" | "salad" | "drinks";
-export type MenuFilter = MenuCategory | "all" | "saved";
-export type MenuPrice = { size: string; sizeAr: string; price: number; oldPrice: number | null };
-export type MenuItem = { id: string; category: MenuCategory; name: string; nameAr: string; note: string; noteAr: string; badge: string; prices: MenuPrice[]; image: string | null };
-export const menuItems = data.items as MenuItem[];
-export const menuSource = data.sourceUrl;
+export const menuCopy: Record<Language, { nav: string; title: string; subtitle: string; search: string; all: string; favs: string; noFavs: string; addFav: string; removeFav: string; directions: string }> = {
+  en: {
+    nav: "Our menu",
+    title: "Something delicious awaits.",
+    subtitle: "Find your favourite. Or fall for something new.",
+    search: "Find a dish...",
+    all: "All dishes",
+    favs: "Favourites",
+    noFavs: "No favourite dishes yet. Tap the heart on any item to save it here.",
+    addFav: "Add to favourites",
+    removeFav: "Remove from favourites",
+    directions: "Get directions",
+  },
+  ar: {
+    nav: "قائمتنا",
+    title: "شيء لذيذ بانتظارك.",
+    subtitle: "اعثر على مفضلك. أو جرب شيئاً جديداً.",
+    search: "ابحث عن طبق...",
+    all: "كل الأطباق",
+    favs: "المفضلة",
+    noFavs: "لا توجد أطباق مفضلة بعد. اضغط على القلب للحفظ.",
+    addFav: "إضافة للمفضلة",
+    removeFav: "إزالة من المفضلة",
+    directions: "الاتجاهات",
+  },
+  ur: {
+    nav: "ہمارا مینو",
+    title: "کچھ لذیذ آپ کا منتظر ہے۔",
+    subtitle: "اپنی پسندیدہ ڈش تلاش کریں۔ یا کچھ نیا آزمائیں۔",
+    search: "ڈش تلاش کریں...",
+    all: "تمام ڈشز",
+    favs: "پسندیدہ",
+    noFavs: "ابھی تک کوئی پسندیدہ ڈش نہیں۔ محفوظ کرنے کے لیے دل کے نشان پر ٹیپ کریں۔",
+    addFav: "پسندیدہ میں شامل کریں",
+    removeFav: "پسندیدہ سے ہٹائیں",
+    directions: "راستہ حاصل کریں",
+  },
+  hi: {
+    nav: "हमारा मेनू",
+    title: "कुछ स्वादिष्ट आपका इंतज़ार कर रहा है।",
+    subtitle: "अपनी पसंदीदा डिश खोजें। या कुछ नया ट्राई करें।",
+    search: "डिश खोजें...",
+    all: "सभी व्यंजन",
+    favs: "पसंदीदा",
+    noFavs: "अभी कोई पसंदीदा डिश नहीं है। सेव करने के लिए दिल पर टैप करें।",
+    addFav: "पसंदीदा में जोड़ें",
+    removeFav: "پسندیدہ سے ہٹائیں",
+    directions: "दिशा-निर्देश",
+  },
+};
+
 export const restaurantLinks = {
-  location: data.links.find((link) => link.name === "Location")!.url,
-  instagram: data.links.find((link) => link.name === "Instagram")!.url,
-  tiktok: data.links.find((link) => link.name === "TikTok")!.url,
+  location: "https://maps.google.com/?q=Italiano+Bari+Dammam",
+  instagram: "https://instagram.com",
+  tiktok: "https://tiktok.com",
 };
-export const menuCategories: { id: MenuCategory; name: string; nameAr: string; caption: string }[] = [
-  { id: "pizza", name: "Pizza", nameAr: "البيتزا", caption: "A little slice of happiness." },
-  { id: "pasta", name: "Pasta", nameAr: "الباستا", caption: "Comfort, the Italian way." },
-  { id: "salad", name: "Salads & sides", nameAr: "السلطات", caption: "A little something on the side." },
-  { id: "drinks", name: "Drinks", nameAr: "المشروبات", caption: "The perfect finishing touch." },
+
+export const categories = [
+  { id: "pizza", label: { en: "Pizza", ar: "البيتزا", ur: "پٹزا", hi: "पिज्जा" } },
+  { id: "pasta", label: { en: "Pasta", ar: "الباستا", ur: "پاستا", hi: "पास्ता" } },
+  { id: "salad", label: { en: "Salads & sides", ar: "السلطات", ur: "سلاد", hi: "सलाद" } },
+  { id: "drink", label: { en: "Drinks", ar: "المشروبات", ur: "مشروبات", hi: "पेय" } },
+] as const;
+
+export const dishes: Dish[] = [
+  {
+    id: "bari-pizza",
+    name: { en: "Bari Pizza", ar: "باري بيتزا", ur: "باری پٹزا", hi: "बारी पिज्जा" },
+    desc: {
+      en: "Authentic Italian Neapolitan-style pizza crafted with a traditional leopard-spotted artisan crust. Topped with rich Italian tomato sauce, melted mozzarella fior di latte, savory seasoned chicken, and finished with a chef’s signature sauce drizzle.",
+      ar: "بيتزا نابوليتانية إيطالية أصلية بعجينة تقليدية، مغطاة بصلصة الطماطم الغنية وجبن الموزاريلا والدجاج المتبل مع صوص الشيف الخاص.",
+      ur: "روایتی نیپولیٹن انداز کی پٹزا جس پر ٹماٹر ساس، موزاریلا چیز، مصالحے دار چکن اور شیف کا خاص ساس شامل ہے۔",
+      hi: "पारंपरिक इतालवी नेपोलिटन पिज्जा, टमाटर सॉस, मोज़ारेला पनीर, चिकन और शेफ के सिग्नेचर सॉस के साथ।"
+    },
+    prices: { small: 29, large: 37 },
+    category: "pizza",
+    image: "/dishes/bari-pizza.png",
+    badge: { en: "NEW · SPECIAL", ar: "جديد · مميز", ur: "نیا · خاص", hi: "नया · विशेष" },
+    options: ["Spicy", "Non-spicy"],
+  },
+  {
+    id: "pepperoni-pizza",
+    name: { en: "Pepperoni Pizza", ar: "بيتزا بيبروني", ur: "پیپرونی پٹزا", hi: "पेपेरोनी पिज्जा" },
+    desc: {
+      en: "Wood-fired Neapolitan pizza topped with rich tomato sauce, melted mozzarella cheese, and crispy beef pepperoni slices.",
+      ar: "بيتزا نابوليتانية بصلصة الطماطم الغنية، جبن الموزاريلا الذائب وشريحات البيبروني المقرمشة.",
+      ur: "ٹماٹر ساس، پگھلی ہوئی موزاریلا چیز اور بیف پیپرونی کے ساتھ وڈ فائرڈ پٹزا۔",
+      hi: "टमाटर सॉस, मोज़ारेला पनीर और बीफ पेपेरोनी स्लाइस के साथ वुड-फायर्ड पिज्जा।"
+    },
+    prices: { small: 29, large: 37 },
+    category: "pizza",
+    image: "/dishes/pepperoni-pizza.png",
+  },
+  {
+    id: "truffle-pizza",
+    name: { en: "Truffle Pizza", ar: "بيتزا ترفل", ur: "ٹرفل پٹزا", hi: "ट्रफल पिज्जा" },
+    desc: {
+      en: "Wood-fired Neapolitan pizza with a creamy white sauce base, melted mozzarella cheese, and sliced fresh mushrooms.",
+      ar: "بيتزا نابوليتانية بصلصة البيضاء الكريمة، جبن الموزاريلا والمشروم الطازج.",
+      ur: "کریمی وائٹ ساس، موزاریلا چیز اور تازہ مشرومز کے ساتھ وڈ فائرڈ پٹزا۔",
+      hi: "क्रीमी व्हाइट सॉस, मोज़ारेला और ताज़ा मशरूम के साथ वुड-फायर्ड पिज्जा।"
+    },
+    prices: { small: 29, large: 37 },
+    category: "pizza",
+    image: "/dishes/truffle-pizza.png",
+  },
+  {
+    id: "vegetable-pizza",
+    name: { en: "Vegetable Pizza", ar: "بيتزا خضار", ur: "سبزیوں والا پٹزا", hi: "वेजीटेबल पिज्जा" },
+    desc: {
+      en: "Wood-fired Neapolitan pizza topped with rich tomato sauce, melted mozzarella cheese, sliced bell peppers, and fresh herbs.",
+      ar: "بيتزا نابوليتانية بصلصة الطماطم الغنية، جبن الموزاريلا، الفلفل الرومي والأعشاب الطازجة.",
+      ur: "ٹماٹر ساس، موزاریلا چیز، شملہ مرچ اور تازہ جڑی بوٹیوں کے ساتھ پٹزا۔",
+      hi: "टमाटर सॉस, मोज़ारेला पनीर, शिमला मिर्च और ताज़ी जड़ी-बूटियों के साथ पिज्जा।"
+    },
+    prices: { small: 29, large: 37 },
+    category: "pizza",
+    image: "/dishes/vegetable-pizza.png",
+  },
+  {
+    id: "margherita-pizza",
+    name: { en: "Margherita Pizza", ar: "مارجريتا بيتزا", ur: "مارگریٹا پٹزا", hi: "मार्गेरीटा पिज्जा" },
+    desc: {
+      en: "Classic wood-fired Neapolitan pizza topped with rich tomato sauce, melted fresh mozzarella, extra virgin olive oil, and fresh basil leaves.",
+      ar: "بيتزا كلاسيكية بصلصة الطماطم الغنية، موزاريلا طازجة، زيت زيتون بكر وأوراق الريحان الطازجة.",
+      ur: "کلاسیکی ٹماٹر ساس، تازہ موزاریلا چیز، زیتون کا تیل اور باسل کے پتوں کے ساتھ پٹزا۔",
+      hi: "टमाटर सॉस, ताज़ा मोज़ारेला, जैतून का तेल और ताज़ा तुलसी के साथ क्लासिक पिज्जा।"
+    },
+    prices: { small: 29, large: 37 },
+    category: "pizza",
+    image: "/dishes/margherita-pizza.png",
+  },
+  {
+    id: "bianca-pizza",
+    name: { en: "Bianca Pizza", ar: "بيانكا بيتزا", ur: "بیانکا پٹزا", hi: "बियांका पिज्जा" },
+    desc: {
+      en: "Wood-fired Neapolitan pizza topped with a creamy white sauce base, melted mozzarella cheese, seasoned chicken cubes, and a drizzle of olive oil.",
+      ar: "بيتزا نابوليتانية بصلصة البيضاء الكريمة، جبن الموزاريلا، قطع الدجاج المتبلة وزيت الزيتون.",
+      ur: "کریمی وائٹ ساس، موزاریلا چیز، چکن کے ٹکڑے اور زیتون کے تیل کے ساتھ پٹزا۔",
+      hi: "क्रीमी व्हाइट सॉस, मोज़ारेلا, चिकन और जैतून के तेल के साथ पिज्जा।"
+    },
+    prices: { small: 29, large: 37 },
+    category: "pizza",
+    image: "/dishes/bianca-pizza.png",
+  },
+  {
+    id: "spaghetti-red-sauce",
+    name: { en: "Spaghetti Pasta | Red Sauce Pasta", ar: "سباجيتي صلصة حمراء", ur: "اسپیگیٹی ریڈ ساس", hi: "स्पैगेटी रेड सॉस" },
+    desc: {
+      en: "Classic spaghetti tossed in a rich tomato and minced meat sauce, topped with grilled chicken, parmesan cheese, and fresh basil leaves.",
+      ar: "سباجيتي كلاسيكية بصلصة الطماطم واللحم المفروم مع دجاج مشوي وجبن بارميزان وريحان.",
+      ur: "ٹماٹر اور قیمہ ساس میں تیار کردہ اسپیگیٹی، گرل چکن اور پارمیسان چیز کے ساتھ۔",
+      hi: "टमाटर सॉस और कीमा में स्पैगेटी, ग्रिल्ड चिकन और परमेसन पनीर के साथ।"
+    },
+    price: 27,
+    category: "pasta",
+    image: "/dishes/spaghetti.png",
+  },
+  {
+    id: "tagliatelle-chicken",
+    name: { en: "Chicken And Mushroom Fettuccine Pasta", ar: "تالياتيلي دجاج", ur: "چکن اینڈ مشروم فیٹوچینی", hi: "चिकन एंड मशरूम पास्ता" },
+    desc: {
+      en: "Fettuccine pasta tossed in a creamy mushroom sauce, served with grilled chicken cubes, parmesan, and fresh basil leaves.",
+      ar: "باستا فيتوتشيني بصلصة المشروم الكريمة مع قطع الدجاج المشوي وجبن بارميزان.",
+      ur: "کریمی مشروم ساس میں تیار کردہ فیٹوچینی پاستا اور گرل چکن۔",
+      hi: "क्रीमी मशरूम सॉस में पास्ता और ग्रिल्ड चिकन।"
+    },
+    price: 27,
+    category: "pasta",
+    image: "/dishes/tagliatelle.png",
+  },
+  {
+    id: "penne-pink-sauce",
+    name: { en: "Penne Pasta With Chicken (Mixed)", ar: "بيني بينك صوص", ur: "پینی پاستا چکن", hi: "पेने पास्ता मिक्स" },
+    desc: {
+      en: "Penne pasta tossed in a rich marinara sauce, topped with grilled chicken cubes, parmesan cheese, and fresh basil leaves.",
+      ar: "باستا بيني بصلصة المارينارا الغنية مع قطع الدجاج المشوي وجبن بارميزان.",
+      ur: "مارینارا ساس میں پینی پاستا اور گرل چکن کے ٹکڑے۔",
+      hi: "मैरिनारा सॉस में पेने पास्ता और ग्रिल्ड चिकन।"
+    },
+    price: 27,
+    category: "pasta",
+    image: "/dishes/penne.png",
+  },
+  {
+    id: "beetroot-salad",
+    name: { en: "Beetroot Salad", ar: "سلطة الشمندر", ur: "چقندر کا سلاد", hi: "चुकंदर का सलाद" },
+    desc: {
+      en: "A delicious mix of tender beetroot cubes, peppery arugula, crumbled cheese, and crushed nuts, finished with a signature creamy drizzle.",
+      ar: "مزيج شهي من مكعبات الشمندر، الجرجير، الجبن والمكسرات مع صوص كريمي.",
+      ur: "چقندر، جرجیر، پنیر اور اخروٹ کا کریمی ساس کے ساتھ بہترین امتزاج۔",
+      hi: "चुकंदर, अरुगुला, पनीर और मेवों का स्वादिष्ट सलाद।"
+    },
+    price: 18,
+    category: "salad",
+    image: "/dishes/beetroot-salad.png",
+  },
+  {
+    id: "peach-salad",
+    name: { en: "Peach Salad", ar: "سلطة الخوخ", ur: "آڑو کا سلاد", hi: "आड़ू का सलाद" },
+    desc: {
+      en: "Fresh sliced peaches over crisp Romaine lettuce and wild arugula (gargir), topped with parmesan cheese and our creamy house dressing.",
+      ar: "شرائح الخوخ الطازجة على الخس والجرجير مع جبن البارميزان والصوص الكريمي الخاص.",
+      ur: "تازہ آڑو، خس اور جرجیر، پارمیسان چیز اور کریمی ڈریسنگ کے ساتھ۔",
+      hi: "ताजा आड़ू, लेट्यूस और अरुगुلا परमेसन पनीर के साथ।"
+    },
+    price: 22,
+    category: "salad",
+    image: "/dishes/peach-salad.png",
+  },
+  {
+    id: "fries",
+    name: { en: "Fries", ar: "بطاطس مقلية", ur: "فرائز", hi: "फाइज" },
+    desc: {
+      en: "Golden crispy french fries, crispy on the outside and tender on the inside.",
+      ar: "بطاطس مقلية ذهبية ومقرمشة من الخارج وطرية من الداخل.",
+      ur: "سنہری مقرمش فرنچ فرائز۔",
+      hi: "सुनहरे कुरकुरे फ्रेंच फ्राइज।"
+    },
+    price: 10,
+    category: "salad",
+    image: "/dishes/fries.png",
+  }
 ];
-const en = {
-  nav: "Our menu", heroKicker: "TRATTORIA · مطعم إيطالي", heroFirst: "A little Italy.", heroSecond: "A lot of flavour.", heroDescription: "Your favourite pizzas, comforting pastas, and little extras. Made with amore, right here in Dammam.", explore: "Explore the menu", heroTag: "BUON APPETITO", special: "NEW SPECIAL", from: "FROM", loyaltyTitle: "Good taste deserves great rewards.", loyaltyDescription: "5 stamps. A little treat. 10 stamps. A pizza on us.", loyaltyButton: "My loyalty card", sectionTitle: "Something delicious awaits.", sectionDescription: "Find your favourite. Or fall for something new.", search: "Find a dish…", searchLabel: "Search menu by dish name", all: "All dishes", saved: "Favourites", pizza: "Pizza", pasta: "Pasta", salad: "Salads & sides", drinks: "Drinks", clearSearch: "Clear search", savedTitle: "Your little list of favourites.", savedDescription: "Saved on this device, ready for your next visit.", result: "dishes", view: "View dish", selectSize: "Choose your size", regular: "Regular", small: "Small", large: "Large", spicy: "Spicy / non-spicy", save: "Save to favourites", unsave: "Remove from favourites", savedToast: "Saved to your favourites.", removedToast: "Removed from your favourites.", savedDevice: "Your favourites are saved on this device.", emptyTitle: "Not on the menu. Yet.", emptyDescription: "Try another dish name, in English or Arabic, or explore all our favourites.", emptySaved: "A little room for your favourites.", emptySavedDescription: "Tap the heart on any dish to save it here for your next visit.", reset: "Explore all dishes", houseNote: "A little note from our kitchen", availability: "Ask our team about ingredients, allergens, and availability before ordering. Prices shown are from our published menu.", priceNote: "Prices in Saudi riyals (SR). Please confirm availability at the counter.", detailNote: "This is our dine-in menu. Speak with our team at the counter to place your order.", bottomTitle: "Come for the food.", bottomSecond: "Stay for the famiglia.", bottomDescription: "Your next Italian moment is waiting. Find us in Dammam, or join our loyalty club before you visit.", directions: "Find our restaurant", join: "Join the famiglia", footer: "From Bari, with amore. Here in Dammam.", original: "Original menu", share: "Share menu", copied: "Menu link copied. Share a little amore!", copyError: "Copy isn’t available. You can share the address from your browser.", imageCaption: "A closer look",
-};
-const ar: typeof en = {
-  nav: "قائمة الطعام", heroKicker: "TRATTORIA · مطعم إيطالي", heroFirst: "قطعة من إيطاليا.", heroSecond: "الكثير من المذاق.", heroDescription: "بيتزا مفضلة، باستا شهية، وإضافات لذيذة. نصنعها بكل حب، هنا في الدمام.", explore: "اكتشف القائمة", heroTag: "بالعافية", special: "جديد ومميز", from: "ابتداءً من", loyaltyTitle: "المذاق الرائع يستحق مكافآت رائعة.", loyaltyDescription: "٥ أختام لهدية صغيرة. ١٠ أختام لبيتزا على حسابنا.", loyaltyButton: "بطاقة الولاء", sectionTitle: "شيء لذيذ بانتظارك.", sectionDescription: "اختر المفضل لديك. أو اكتشف مذاقاً جديداً.", search: "ابحث عن طبق…", searchLabel: "ابحث في القائمة باسم الطبق", all: "كل الأطباق", saved: "المفضلة", pizza: "بيتزا", pasta: "باستا", salad: "سلطات وإضافات", drinks: "مشروبات", clearSearch: "مسح البحث", savedTitle: "قائمتك الصغيرة من الأطباق المفضلة.", savedDescription: "محفوظة على هذا الجهاز، لزيارتك القادمة.", result: "أطباق", view: "عرض الطبق", selectSize: "اختر الحجم", regular: "عادي", small: "صغير", large: "كبير", spicy: "حار / غير حار", save: "أضف إلى المفضلة", unsave: "إزالة من المفضلة", savedToast: "تمت الإضافة إلى المفضلة.", removedToast: "تمت الإزالة من المفضلة.", savedDevice: "مفضلتك محفوظة على هذا الجهاز.", emptyTitle: "لم نجد هذا الطبق.", emptyDescription: "جرّب اسماً آخر بالعربية أو الإنجليزية، أو اكتشف جميع أطباقنا.", emptySaved: "مكان صغير لأطباقك المفضلة.", emptySavedDescription: "اضغط على القلب لحفظ أي طبق هنا لزيارتك القادمة.", reset: "اكتشف كل الأطباق", houseNote: "ملاحظة من مطبخنا", availability: "اسأل فريقنا عن المكونات ومسببات الحساسية والتوفر قبل الطلب. الأسعار المعروضة من قائمتنا المنشورة.", priceNote: "الأسعار بالريال السعودي. يرجى التأكد من التوفر عند الكاشير.", detailNote: "هذه قائمة المطعم. تحدث مع فريقنا عند الكاشير لتقديم طلبك.", bottomTitle: "تعال من أجل المذاق.", bottomSecond: "وابقَ مع العائلة.", bottomDescription: "لحظتك الإيطالية القادمة بانتظارك. زرنا في الدمام أو انضم إلى برنامج الولاء قبل زيارتك.", directions: "موقع المطعم", join: "انضم إلى العائلة", footer: "من باري بكل حب. هنا في الدمام.", original: "القائمة الأصلية", share: "مشاركة القائمة", copied: "تم نسخ رابط القائمة. شارك المحبة!", copyError: "تعذّر النسخ. يمكنك مشاركة الرابط من متصفحك.", imageCaption: "نظرة أقرب",
-};
-const ur: typeof en = {
-  ...en, nav: "ہمارا مینو", heroFirst: "اٹلی کی ایک جھلک۔", heroSecond: "ذائقہ بھرپور۔", heroDescription: "آپ کے پسندیدہ پیزا، مزیدار پاستا اور چھوٹے تحفے۔ دمام میں، محبت سے تیار۔", explore: "مینو دیکھیں", special: "نیا اسپیشل", from: "قیمت شروع", loyaltyTitle: "اچھے ذائقے کے ساتھ بہترین انعامات۔", loyaltyDescription: "۵ اسٹیمپ پر تحفہ۔ ۱۰ اسٹیمپ پر پیزا ہماری طرف سے۔", loyaltyButton: "میرا لائلٹی کارڈ", sectionTitle: "کچھ مزیدار آپ کا منتظر ہے۔", sectionDescription: "اپنا پسندیدہ چنیں۔ یا کچھ نیا آزمائیں۔", search: "کوئی ڈش تلاش کریں…", searchLabel: "مینو میں ڈش تلاش کریں", all: "تمام پکوان", saved: "پسندیدہ", pizza: "پیزا", pasta: "پاستا", salad: "سلاد اور سائیڈز", drinks: "مشروبات", clearSearch: "تلاش صاف کریں", savedTitle: "آپ کی پسندیدہ ڈشز۔", savedDescription: "اس ڈیوائس پر محفوظ، آپ کی اگلی آمد کے لیے۔", result: "پکوان", view: "ڈش دیکھیں", selectSize: "سائز منتخب کریں", regular: "ریگولر", small: "چھوٹا", large: "بڑا", spicy: "تیز مصالحہ / بغیر تیز مصالحے", save: "پسندیدہ میں محفوظ کریں", unsave: "پسندیدہ سے ہٹائیں", savedToast: "پسندیدہ میں محفوظ ہو گیا۔", removedToast: "پسندیدہ سے ہٹا دیا گیا۔", savedDevice: "آپ کی پسند اس ڈیوائس پر محفوظ ہے۔", emptyTitle: "یہ ڈش نہیں ملی۔", emptyDescription: "انگریزی یا عربی میں دوسرا نام تلاش کریں۔", emptySaved: "آپ کی پسند کا انتظار ہے۔", emptySavedDescription: "ڈش پر دل دبائیں اور اگلی آمد کے لیے محفوظ کریں۔", reset: "تمام پکوان دیکھیں", houseNote: "ہمارے کچن کی طرف سے ایک بات", availability: "اجزاء، الرجی اور دستیابی کے بارے میں آرڈر سے پہلے ہماری ٹیم سے پوچھیں۔ قیمتیں ہمارے شائع شدہ مینو سے ہیں۔", priceNote: "قیمتیں سعودی ریال میں ہیں۔ دستیابی کاؤنٹر پر معلوم کریں۔", detailNote: "یہ ریسٹورنٹ کا مینو ہے۔ آرڈر کے لیے کاؤنٹر پر ہماری ٹیم سے بات کریں۔", bottomTitle: "ذائقے کے لیے آئیں۔", bottomSecond: "خاندان کا حصہ بن جائیں۔", bottomDescription: "آپ کا اگلا اطالوی لمحہ منتظر ہے۔ دمام میں ہم سے ملیں یا ہمارے لائلٹی کلب میں شامل ہوں۔", directions: "ریسٹورنٹ کا مقام", join: "خاندان میں شامل ہوں", footer: "باری سے محبت کے ساتھ۔ دمام میں۔", original: "اصل مینو", share: "مینو شیئر کریں", copied: "مینو کا لنک کاپی ہو گیا۔", copyError: "کاپی دستیاب نہیں۔ براؤزر کا لنک شیئر کریں۔",
-};
-const hi: typeof en = {
-  ...en, nav: "हमारा मेन्यू", heroFirst: "इटली की एक झलक।", heroSecond: "ढेर सारा स्वाद।", heroDescription: "पसंदीदा पिज़्ज़ा, स्वादिष्ट पास्ता और छोटी खुशियाँ। दम्माम में, प्यार से तैयार।", explore: "मेन्यू देखें", special: "नया स्पेशल", from: "शुरुआती कीमत", loyaltyTitle: "अच्छे स्वाद के साथ शानदार इनाम।", loyaltyDescription: "५ स्टैम्प पर तोहफ़ा। १० पर पिज़्ज़ा हमारी ओर से।", loyaltyButton: "मेरा लॉयल्टी कार्ड", sectionTitle: "कुछ स्वादिष्ट आपका इंतज़ार कर रहा है।", sectionDescription: "अपना पसंदीदा चुनें। या कुछ नया आज़माएँ।", search: "कोई डिश खोजें…", searchLabel: "मेन्यू में डिश खोजें", all: "सभी व्यंजन", saved: "पसंदीदा", pizza: "पिज़्ज़ा", pasta: "पास्ता", salad: "सलाद और साइड्स", drinks: "पेय", clearSearch: "खोज मिटाएँ", savedTitle: "आपकी पसंदीदा डिशेज़।", savedDescription: "इस डिवाइस पर सुरक्षित, आपकी अगली विज़िट के लिए।", result: "व्यंजन", view: "डिश देखें", selectSize: "साइज़ चुनें", regular: "रेगुलर", small: "छोटा", large: "बड़ा", spicy: "तीखा / बिना तीखे के", save: "पसंदीदा में सेव करें", unsave: "पसंदीदा से हटाएँ", savedToast: "पसंदीदा में सेव हो गया।", removedToast: "पसंदीदा से हटा दिया गया।", savedDevice: "आपकी पसंद इस डिवाइस पर सेव है।", emptyTitle: "यह डिश नहीं मिली।", emptyDescription: "अंग्रेज़ी या अरबी में कोई दूसरा नाम खोजें।", emptySaved: "आपकी पसंद का इंतज़ार है।", emptySavedDescription: "किसी डिश पर दिल दबाकर उसे अगली विज़िट के लिए सेव करें।", reset: "सभी व्यंजन देखें", houseNote: "हमारी रसोई से एक छोटी बात", availability: "ऑर्डर से पहले सामग्री, एलर्जी और उपलब्धता के बारे में हमारी टीम से पूछें। कीमतें हमारे प्रकाशित मेन्यू से हैं।", priceNote: "कीमतें सऊदी रियाल में हैं। उपलब्धता काउंटर पर पूछें।", detailNote: "यह रेस्टोरेंट का मेन्यू है। ऑर्डर देने के लिए काउंटर पर हमारी टीम से बात करें।", bottomTitle: "स्वाद के लिए आएँ।", bottomSecond: "परिवार का हिस्सा बन जाएँ।", bottomDescription: "आपका अगला इटैलियन पल आपका इंतज़ार कर रहा है। दम्माम में हमसे मिलें या लॉयल्टी क्लब से जुड़ें।", directions: "रेस्टोरेंट का पता", join: "परिवार से जुड़ें", footer: "बारी से प्यार के साथ। दम्माम में।", original: "मूल मेन्यू", share: "मेन्यू शेयर करें", copied: "मेन्यू लिंक कॉपी हो गया।", copyError: "कॉपी उपलब्ध नहीं है। ब्राउज़र का लिंक शेयर करें।",
-};
-export const menuCopy: Record<Language, typeof en> = { en, ar, ur, hi };
-export function normalizeMenuSearch(text: string) { return text.toLocaleLowerCase().normalize("NFKD").replace(/[\u064B-\u065F\u0670]/g, "").replace(/[أإآ]/g, "ا").replace(/ى/g, "ي").trim(); }
-export function validMenuFilter(value?: string): MenuFilter { return ["all", "saved", "pizza", "pasta", "salad", "drinks"].includes(value || "") ? value as MenuFilter : "all"; }
