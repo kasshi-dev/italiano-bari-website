@@ -13,7 +13,7 @@ export interface Dish {
 export type Language = "en" | "ar" | "ur" | "hi";
 
 export const validMenuFilter = ["all", "pizza", "pasta", "salad", "drink"] as const;
-export type MenuFilter = typeof validMenuFilter[number];
+export type MenuFilter = (typeof validMenuFilter)[number];
 
 export function normalizeMenuSearch(query: string): string {
   return query.trim().toLowerCase();
@@ -28,7 +28,21 @@ export const menuCategories = [
 
 export const categories = menuCategories;
 
-export const menuCopy: Record<Language, { nav: string; title: string; subtitle: string; search: string; all: string; favs: string; noFavs: string; addFav: string; removeFav: string; directions: string }> = {
+export const menuCopy: Record<
+  Language,
+  {
+    nav: string;
+    title: string;
+    subtitle: string;
+    search: string;
+    all: string;
+    favs: string;
+    noFavs: string;
+    addFav: string;
+    removeFav: string;
+    directions: string;
+  }
+> = {
   en: {
     nav: "Our menu",
     title: "Something delicious awaits.",
@@ -95,12 +109,12 @@ export const dishes: Dish[] = [
       en: "Authentic Italian Neapolitan-style pizza crafted with a traditional leopard-spotted artisan crust. Topped with rich Italian tomato sauce, melted mozzarella fior di latte, savory seasoned chicken, and finished with a chef’s signature sauce drizzle.",
       ar: "بيتزا نابوليتانية إيطالية أصلية بعجينة تقليدية، مغطاة بصلصة الطماطم الغنية وجبن الموزاريلا والدجاج المتبل مع صوص الشيف الخاص.",
       ur: "روایتی نیپولیٹن انداز کی پٹزا جس پر ٹماٹر ساس، موزاریلا چیز، مصالحے دار چکن اور شیف کا خاص ساس شامل ہے۔",
-      hi: "पारंपरिक इतालवी नेपोलिटन पिज्जा, टमाटर सॉस, मोज़ारेला पनीर, चिकन और शेफ के सिग्नेचर सॉस के साथ।"
+      hi: "पारंपरिक इतालवी नेपोलिटन पिज्जा, टमाटर सॉस, मोज़ारेला पनीर, चिकन और शेफ के सिग्नेचर सॉस के साथ।",
     },
     prices: { small: 29, large: 37 },
     category: "pizza",
     image: "/dishes/bari-pizza.png",
-    badge: { en: "NEW · SPECIAL", ar: "جديد · مميز", ur: "نیا · خاص", hi: "नया · विशेष" },
+    badge: { en: "NEW · SPECIAL", ar: "جديد · مميز", ur: "نیا · خاص", hi: "نیا · विशेष" },
     options: ["Spicy", "Non-spicy"],
   },
   {
@@ -110,7 +124,7 @@ export const dishes: Dish[] = [
       en: "Wood-fired Neapolitan pizza topped with rich tomato sauce, melted mozzarella cheese, and crispy beef pepperoni slices.",
       ar: "بيتزا نابوليتانية بصلصة الطماطم الغنية، جبن الموزاريلا الذائب وشريحات البيبروني المقرمشة.",
       ur: "ٹماٹر ساس، پگھلی ہوئی موزاریلا چیز اور بیف پیپرونی کے ساتھ وڈ فائرڈ پٹزا۔",
-      hi: "टमाटर सॉस, मोज़ारेला पनीर और बीफ पेपेरोनी स्लाइस के साथ वुड-फायर्ड पिज्जा।"
+      hi: "टमाटर सॉस, मोज़ारेला पनीर और बीफ पेपेरोनी स्लाइस के साथ वुड-फायर्ड पिज्जा।",
     },
     prices: { small: 29, large: 37 },
     category: "pizza",
@@ -123,7 +137,7 @@ export const dishes: Dish[] = [
       en: "Wood-fired Neapolitan pizza with a creamy white sauce base, melted mozzarella cheese, and sliced fresh mushrooms.",
       ar: "بيتزا نابوليتانية بصلصة البيضاء الكريمة، جبن الموزاريلا والمشروم الطازج.",
       ur: "کریمی وائٹ ساس، موزاریلا چیز اور تازہ مشرومز کے ساتھ وڈ فائرڈ پٹزا۔",
-      hi: "क्रीमी व्हाइट सॉस, मोज़ारेلا और ताज़ा मशरूम के साथ वुड-फायर्ड पिज्जा।"
+      hi: "क्रीमी व्हाइट सॉस, मोज़ारेला और ताज़ा मशरूम के साथ वुड-फायर्ड पिज्जा।",
     },
     prices: { small: 29, large: 37 },
     category: "pizza",
@@ -136,7 +150,7 @@ export const dishes: Dish[] = [
       en: "Wood-fired Neapolitan pizza topped with rich tomato sauce, melted mozzarella cheese, sliced bell peppers, and fresh herbs.",
       ar: "بيتزا نابوليتانية بصلصة الطماطم الغنية، جبن الموزاريلا، الفلفل الرومي والأعشاب الطازجة.",
       ur: "ٹماٹر ساس، موزاریلا چیز، شملہ مرچ اور تازہ جڑی بوٹیوں کے ساتھ پٹزا۔",
-      hi: "टमाटर सॉस, मोज़ारेला पनीर, शिमला मिर्च और ताज़ी जड़ी-बूटियों के साथ पिज्जा।"
+      hi: "टमाटर सॉस, मोज़ारेلا पनीर, शिमला मिर्च और ताज़ी जड़ी-बूटियों के साथ पिज्जा।",
     },
     prices: { small: 29, large: 37 },
     category: "pizza",
@@ -149,7 +163,7 @@ export const dishes: Dish[] = [
       en: "Classic wood-fired Neapolitan pizza topped with rich tomato sauce, melted fresh mozzarella, extra virgin olive oil, and fresh basil leaves.",
       ar: "بيتزا كلاسيكية بصلصة الطماطم الغنية، موزاريلا طازجة، زيت زيتون بكر وأوراق الريحان الطازجة.",
       ur: "کلاسیکی ٹماٹر ساس، تازہ موزاریلا چیز، زیتون کا تیل اور باسل کے پتوں کے ساتھ پٹزا۔",
-      hi: "टमाटर सॉस, ताज़ा मोज़ारेला, जैतून का तेल और ताज़ा तुलसी के साथ क्लासिक पिज्जा।"
+      hi: "टमाटर सॉस, ताज़ा मोज़ारेلا, जैतून का तेल और ताज़ा तुलसी के साथ क्लासिक पिज्जा।",
     },
     prices: { small: 29, large: 37 },
     category: "pizza",
@@ -157,12 +171,12 @@ export const dishes: Dish[] = [
   },
   {
     id: "bianca-pizza",
-    name: { en: "Bianca Pizza", ar: "بيانكا بيتزا", ur: "بيانكا پٹزا", hi: "बियांका पिज्जा" },
+    name: { en: "Bianca Pizza", ar: "بيانكا بيتزا", ur: "بيانكا پٹزا", hi: "बियांكا पिज्जा" },
     desc: {
       en: "Wood-fired Neapolitan pizza topped with a creamy white sauce base, melted mozzarella cheese, seasoned chicken cubes, and a drizzle of olive oil.",
       ar: "بيتزا نابوليتانية بصلصة البيضاء الكريمة، جبن الموزاريلا، قطع الدجاج المتبلة وزيت الزيتون.",
       ur: "کریمی وائٹ ساس، موزاریلا چیز، چکن کے ٹکڑے اور زیتون کے تیل کے ساتھ پٹزا۔",
-      hi: "क्रीमी व्हाइट सॉस, मोज़ारेلا, चिकन और जैतून के तेल के साथ पिज्जा।"
+      hi: "क्रीमी व्हाइट सॉस, मोज़ारेला, चिकन और जैतून के तेल के साथ पिज्जा।",
     },
     prices: { small: 29, large: 37 },
     category: "pizza",
@@ -175,7 +189,7 @@ export const dishes: Dish[] = [
       en: "Classic spaghetti tossed in a rich tomato and minced meat sauce, topped with grilled chicken, parmesan cheese, and fresh basil leaves.",
       ar: "سباجيتي كلاسيكية بصلصة الطماطم واللحم المفروم مع دجاج مشوي وجبن بارميزان وريحان.",
       ur: "ٹماٹر اور قیمہ ساس میں تیار کردہ اسپیگیٹی، گرل چکن اور پارمیسان چیز کے ساتھ۔",
-      hi: "टमाटर सॉस और कीमा में स्पैगेटी, ग्रिल्ड चिकन और परमेसन पनीर के साथ।"
+      hi: "टमाटर सॉस और कीमा में स्पैगेटी, ग्रिल्ड चिकन और परमेसन पनीर के साथ।",
     },
     price: 27,
     category: "pasta",
@@ -188,7 +202,7 @@ export const dishes: Dish[] = [
       en: "Fettuccine pasta tossed in a creamy mushroom sauce, served with grilled chicken cubes, parmesan, and fresh basil leaves.",
       ar: "باستا فيتوتشيني بصلصة المشروم الكريمة مع قطع الدجاج المشوي وجبن بارميزان.",
       ur: "کریمی مشروم ساس میں تیار کردہ فیٹوچینی پاستا اور گرل چکن۔",
-      hi: "क्रीमी मशरूम सॉस में पास्ता और ग्रिल्ड चिकन।"
+      hi: "क्रीमी मशरूम सॉस में पास्ता और ग्रिल्ड चिकन।",
     },
     price: 27,
     category: "pasta",
@@ -196,4 +210,22 @@ export const dishes: Dish[] = [
   },
   {
     id: "penne-pink-sauce",
-    name: { en: "Penne Pasta With Chicken (Mixed)", ar: "بيني بين
+    name: {
+      en: "Penne Pasta With Chicken (Mixed)",
+      ar: "بيني بينك صوص مع دجاج",
+      ur: "پینی پنک ساس چکن کے ساتھ",
+      hi: "पेने पिंक सॉस चिकन के साथ",
+    },
+    desc: {
+      en: "Penne pasta tossed in a delicious mix of tomato and cream sauce, served with grilled chicken cubes and fresh herbs.",
+      ar: "باستا بيني بصلصة بينك ممزوجة مع قطع الدجاج المشوي والأعشاب الطازجة.",
+      ur: "ٹماٹر اور کریمی ساس کے مکسچر میں پینی پاستا اور گرل چکن۔",
+      hi: "पिंक सॉस में पेने पास्ता और ग्रिल्ड चिकन।",
+    },
+    price: 27,
+    category: "pasta",
+    image: "/dishes/penne.png",
+  },
+];
+
+export const menuItems = dishes;
