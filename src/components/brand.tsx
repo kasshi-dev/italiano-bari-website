@@ -9,9 +9,9 @@ export function Brand({ compact = false, light = false }: { compact?: boolean; l
     >
       <img 
         className="brand-logo" 
-        src="/menu/penne-pasta-with-chicken-mixed-sauce.webp" 
+        src="/logo.png" 
         alt="Italiano Bari" 
-        style={{ width: '48px', height: '48px', borderRadius: '50%', objectFit: 'cover' }}
+        style={{ width: '48px', height: '48px', objectFit: 'contain' }}
       />
       {compact ? (
         <span className="brand-compact-name">Italiano Bari</span>
