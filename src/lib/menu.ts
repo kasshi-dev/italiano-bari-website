@@ -37,7 +37,35 @@ export type MenuCategory = typeof menuCategories[number]["id"];
 
 export const categories = menuCategories;
 
-export const menuCopy: Record<Language, { nav: string; title: string; subtitle: string; search: string; all: string; favs: string; noFavs: string; addFav: string; removeFav: string; directions: string }> = {
+export type MenuCopy = {
+  nav: string;
+  title: string;
+  subtitle: string;
+  search: string;
+  all: string;
+  favs: string;
+  noFavs: string;
+  addFav: string;
+  removeFav: string;
+  directions: string;
+  join?: string;
+  priceNote?: string;
+  original?: string;
+  imageCaption?: string;
+  spicy?: string;
+  selectSize?: string;
+  small?: string;
+  large?: string;
+  regular?: string;
+  detailNote?: string;
+  unsave?: string;
+  save?: string;
+  savedDevice?: string;
+  loyaltyButton?: string;
+  [key: string]: any;
+};
+
+export const menuCopy: Record<Language, MenuCopy> = {
   en: {
     nav: "Our menu",
     title: "Something delicious awaits.",
@@ -49,6 +77,20 @@ export const menuCopy: Record<Language, { nav: string; title: string; subtitle: 
     addFav: "Add to favourites",
     removeFav: "Remove from favourites",
     directions: "Get directions",
+    join: "Join",
+    priceNote: "Prices include VAT",
+    original: "Original",
+    imageCaption: "Serving suggestion",
+    spicy: "Spicy option available",
+    selectSize: "Select size",
+    small: "Small",
+    large: "Large",
+    regular: "Regular",
+    detailNote: "Made fresh daily with authentic ingredients.",
+    unsave: "Remove from saved",
+    save: "Save for later",
+    savedDevice: "Saved on this device",
+    loyaltyButton: "My Loyalty Card",
   },
   ar: {
     nav: "قائمتنا",
@@ -61,6 +103,20 @@ export const menuCopy: Record<Language, { nav: string; title: string; subtitle: 
     addFav: "إضافة للمفضلة",
     removeFav: "إزالة من المفضلة",
     directions: "الاتجاهات",
+    join: "انضمام",
+    priceNote: "الأسعار شاملة ضريبة القيمة المضافة",
+    original: "الأصلي",
+    imageCaption: "صورة توضيحية للتقديم",
+    spicy: "خيار حار متوفر",
+    selectSize: "اختر الحجم",
+    small: "صغير",
+    large: "كبير",
+    regular: "عادي",
+    detailNote: "يُحضر طازجاً يومياً بمكونات إيطالية أصلية.",
+    unsave: "إزالة من المحفوظات",
+    save: "حفظ للمستقبل",
+    savedDevice: "محفوظ على هذا الجهاز",
+    loyaltyButton: "بطاقة الولاء",
   },
   ur: {
     nav: "ہمارا مینو",
@@ -73,6 +129,20 @@ export const menuCopy: Record<Language, { nav: string; title: string; subtitle: 
     addFav: "پسندیدہ میں شامل کریں",
     removeFav: "پسندیدہ سے ہٹائیں",
     directions: "راستہ حاصل کریں",
+    join: "شامل ہوں",
+    priceNote: "قیمتوں میں ٹیکس شامل ہے",
+    original: "اصل",
+    imageCaption: "پیشکش کی تصویر",
+    spicy: "مسالہ دار آپشن دستیاب ہے",
+    selectSize: "سائز منتخب کریں",
+    small: "چھوٹا",
+    large: "بڑا",
+    regular: "عام",
+    detailNote: "روزانہ تازہ تیار کیا جاتا ہے۔",
+    unsave: "محفوظ کی گئی فہرست سے ہٹائیں",
+    save: "بعد کے لیے محفوظ کریں",
+    savedDevice: "اس ڈیوائس پر محفوظ ہے",
+    loyaltyButton: "میرا لائلٹی کارڈ",
   },
   hi: {
     nav: "हमारा मेनू",
@@ -85,6 +155,20 @@ export const menuCopy: Record<Language, { nav: string; title: string; subtitle: 
     addFav: "पसंदीदा में जोड़ें",
     removeFav: "हटाएं",
     directions: "दिशा-निर्देश",
+    join: "जुड़ें",
+    priceNote: "कीमतों में जीएसटी शामिल है",
+    original: "मूल",
+    imageCaption: "परोसने का सुझाव",
+    spicy: "मसालेदार विकल्प उपलब्ध",
+    selectSize: "आकार चुनें",
+    small: "छोटा",
+    large: "बड़ा",
+    regular: "सामान्य",
+    detailNote: "ताज़ा सामग्री से दैनिक रूप से बनाया गया।",
+    unsave: "सहेजे गए से हटाएं",
+    save: "बाद के लिए सहेजें",
+    savedDevice: "इस डिवाइस पर सहेजा गया",
+    loyaltyButton: "मेरा वफादारी कार्ड",
   },
 };
 
@@ -104,12 +188,12 @@ export const dishes: Dish[] = [
       en: "Authentic Italian Neapolitan-style pizza crafted with a traditional leopard-spotted artisan crust. Topped with rich Italian tomato sauce, melted mozzarella fior di latte, savory seasoned chicken, and finished with a chef’s signature sauce drizzle.",
       ar: "بيتزا نابوليتانية إيطالية أصلية بعجينة تقليدية، مغطاة بصلصة الطماطم الغنية وجبن الموزاريلا والدجاج المتبل مع صوص الشيف الخاص.",
       ur: "روایتی نیپولیٹن انداز کی پٹزا جس پر ٹماٹر ساس، موزاریلا چیز، مصالحے دار چکن اور شیف کا خاص ساس شامل ہے۔",
-      hi: "पारंपरिक इतालवी नेपोलिटन पिज्जा, टमाटर सॉس, मोज़ारेला पनीर, चिकन और शेफ के सिग्नेचर सॉस के साथ।"
+      hi: "पारंपरिक इतालवी नेपोलिटन पिज्जा, टमाटर सॉस, मोज़ारेला पनीर, चिकन और शेफ के सिग्नेचर सॉस के साथ।"
     },
     prices: { small: 29, large: 37 },
     category: "pizza",
     image: "/dishes/bari-pizza.png",
-    badge: { en: "NEW · SPECIAL", ar: "جديد · مميز", ur: "نیا · خاص", hi: "نया · विशेष" },
+    badge: { en: "NEW · SPECIAL", ar: "جديد · مميز", ur: "نیا · خاص", hi: "नया · विशेष" },
     options: ["Spicy", "Non-spicy"],
   },
   {
@@ -118,7 +202,7 @@ export const dishes: Dish[] = [
     desc: {
       en: "Wood-fired Neapolitan pizza topped with rich tomato sauce, melted mozzarella cheese, and crispy beef pepperoni slices.",
       ar: "بيتزا نابوليتانية بصلصة الطماطم الغنية، جبن الموزاريلا الذائب وشريحات البيبروني المقرمشة.",
-      ur: "ٹماٹر ساس، پگھلی ہوئی موزاریلا چیز اور بیف پیپرونی کے ساتھ وڈ فائرڈ پٹزا۔",
+      ur: "ٹماٹر ساس، پگھلی ہوئی موزاريلا چیز اور بیف پیپرونی کے ساتھ وڈ فائرڈ پٹزا۔",
       hi: "टमाटर सॉस, मोज़ारेला पनीर और बीफ पेपेरोनी स्लाइस के साथ वुड-फायर्ड पिज्जा।"
     },
     prices: { small: 29, large: 37 },
@@ -158,7 +242,7 @@ export const dishes: Dish[] = [
       en: "Classic wood-fired Neapolitan pizza topped with rich tomato sauce, melted fresh mozzarella, extra virgin olive oil, and fresh basil leaves.",
       ar: "بيتزا كلاسيكية بصلصة الطماطم الغنية، موزاريلا طازجة، زيت زيتون بكر وأوراق الريحان الطازجة.",
       ur: "کلاسیکی ٹماٹر ساس، تازہ موزاریلا چیز، زیتون کا تیل اور باسل کے پتوں کے ساتھ پٹزا۔",
-      hi: "टमाटर सॉस, ताज़ा मोज़ारेला, जैतून का तेल और ताज़ा तुलसी के साथ क्लासिक पिज्जा।"
+      hi: "टमाटर सॉस, ताज़ा मोज़ारेلا, जैतून का तेल और ताज़ा तुलसी के साथ क्लासिक पिज्जा।"
     },
     prices: { small: 29, large: 37 },
     category: "pizza",
@@ -179,7 +263,7 @@ export const dishes: Dish[] = [
   },
   {
     id: "spaghetti-red-sauce",
-    name: { en: "Spaghetti Pasta | Red Sauce Pasta", ar: "سباجيتي صلصة حمراء", ur: "اسپیگیٹی ریڈ ساس", hi: "स्पैगेटी रेड सॉस" },
+    name: { en: "Spaghetti Pasta | Red Sauce Pasta", ar: "سباجيتي صلصة حمراء", ur: "اسپیگیٹی ریڈ ساس", hi: "स्पैगेटी रेड सॉس" },
     desc: {
       en: "Classic spaghetti tossed in a rich tomato and minced meat sauce, topped with grilled chicken, parmesan cheese, and fresh basil leaves.",
       ar: "سباجيتي كلاسيكية بصلصة الطماطم واللحم المفروم مع دجاج مشوي وجبن بارميزان وريحان.",
@@ -210,7 +294,7 @@ export const dishes: Dish[] = [
       en: "Penne pasta tossed in a rich marinara sauce, topped with grilled chicken cubes, parmesan cheese, and fresh basil leaves.",
       ar: "باستا بيني بصلصة المارينارا الغنية مع قطع الدجاج المشوي وجبن بارميزان.",
       ur: "مارینارا ساس میں پینی پاستا اور گرل چکن کے ٹکڑے۔",
-      hi: "मैरिनारा सॉस में पेने पास्ता और ग्रिल्ड चिकन।"
+      hi: "मैरينारा सॉस में पेने पास्ता और ग्रिल्ड चिकन।"
     },
     price: 27,
     category: "pasta",
@@ -223,7 +307,7 @@ export const dishes: Dish[] = [
       en: "A delicious mix of tender beetroot cubes, peppery arugula, crumbled cheese, and crushed nuts, finished with a signature creamy drizzle.",
       ar: "مزيج شهي من مكعبات الشمندر، الجرجير، الجبن والمكسرات مع صوص كريمي.",
       ur: "چقندر، جرجیر، پنیر اور اخروٹ کا کریمی ساس کے ساتھ بہترین امتزاج۔",
-      hi: "चुकंदर, अरुगुला, पनीर और मेवों का स्वादिष्ट सलाद।"
+      hi: "चुकंदर, अरुगुلا, पनीर और मेवों का स्वादिष्ट सलाद।"
     },
     price: 18,
     category: "salad",
