@@ -8,10 +8,11 @@ export function Brand({ compact = false, light = false }: { compact?: boolean; l
       className={`brand brand-original ${compact ? "brand-compact" : ""} ${light ? "brand-light" : ""}`}
     >
       <img 
-        className="brand-logo" 
         src="/logo.png" 
         alt="Italiano Bari" 
-        style={{ width: '48px', height: '48px', objectFit: 'contain' }}
+        width="48" 
+        height="48" 
+        style={{ display: 'block', maxWidth: '100%', height: 'auto' }}
       />
       {compact ? (
         <span className="brand-compact-name">Italiano Bari</span>
