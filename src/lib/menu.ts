@@ -28,21 +28,7 @@ export const menuCategories = [
 
 export const categories = menuCategories;
 
-export const menuCopy: Record<
-  Language,
-  {
-    nav: string;
-    title: string;
-    subtitle: string;
-    search: string;
-    all: string;
-    favs: string;
-    noFavs: string;
-    addFav: string;
-    removeFav: string;
-    directions: string;
-  }
-> = {
+export const menuCopy: Record<Language, Record<string, any>> = {
   en: {
     nav: "Our menu",
     title: "Something delicious awaits.",
@@ -54,6 +40,22 @@ export const menuCopy: Record<
     addFav: "Add to favourites",
     removeFav: "Remove from favourites",
     directions: "Get directions",
+    bottomSecond: "Italiano Bari",
+    bottomDescription: "Authentic Italian Taste",
+    join: "Join Loyalty Program",
+    priceNote: "Prices subject to change",
+    original: "Original",
+    imageCaption: "Delicious Dish",
+    spicy: "Spicy",
+    selectSize: "Select Size",
+    small: "Small",
+    large: "Large",
+    regular: "Regular",
+    detailNote: "Fresh ingredients",
+    unsave: "Remove from saved",
+    save: "Save dish",
+    savedDevice: "Saved on this device",
+    loyaltyButton: "Loyalty Program",
   },
   ar: {
     nav: "قائمتنا",
@@ -66,6 +68,22 @@ export const menuCopy: Record<
     addFav: "إضافة للمفضلة",
     removeFav: "إزالة من المفضلة",
     directions: "الاتجاهات",
+    bottomSecond: "إيتاليانو باري",
+    bottomDescription: "طعم إيطالي أصيل",
+    join: "انضم لبرنامج الولاء",
+    priceNote: "الأسعار قابلة للتغيير",
+    original: "الأصلي",
+    imageCaption: "طبق لذیذ",
+    spicy: "حار",
+    selectSize: "اختر الحجم",
+    small: "صغير",
+    large: "كبير",
+    regular: "عادي",
+    detailNote: "مكونات طازجة",
+    unsave: "إزالة من المحفوظات",
+    save: "حفظ الطبق",
+    savedDevice: "محفوظ على هذا الجهاز",
+    loyaltyButton: "برنامج الولاء",
   },
   ur: {
     nav: "ہمارا مینو",
@@ -78,6 +96,22 @@ export const menuCopy: Record<
     addFav: "پسندیدہ میں شامل کریں",
     removeFav: "پسندیدہ سے ہٹائیں",
     directions: "راستہ حاصل کریں",
+    bottomSecond: "اطالوی باری",
+    bottomDescription: "خالص اطالوی ذائقہ",
+    join: "وفاداری پروگرام میں شامل ہوں",
+    priceNote: "قیمتیں تبدیل ہو سکتی ہیں",
+    original: "اصل",
+    imageCaption: "لذیذ ڈش",
+    spicy: "مسالہ دار",
+    selectSize: "سائز منتخب کریں",
+    small: "چھوٹا",
+    large: "بڑا",
+    regular: "عام",
+    detailNote: "تازہ اجزاء",
+    unsave: "محفوظ سے ہٹائیں",
+    save: "ڈش محفوظ کریں",
+    savedDevice: "اس ڈیوائس پر محفوظ ہے",
+    loyaltyButton: "وفاداری پروگرام",
   },
   hi: {
     nav: "हमारा मेनू",
@@ -90,6 +124,22 @@ export const menuCopy: Record<
     addFav: "पसंदीदा में जोड़ें",
     removeFav: "पसंदीदा से हटाएं",
     directions: "दिशा-निर्देश",
+    bottomSecond: "इतालवी बारी",
+    bottomDescription: "असली इतालवी स्वाद",
+    join: "वफादारी कार्यक्रम में शामिल हों",
+    priceNote: "कीमतें बदल सकती हैं",
+    original: "मूल",
+    imageCaption: "स्वादिष्ट व्यंजन",
+    spicy: "मसालेदार",
+    selectSize: "आकार चुनें",
+    small: "छोटा",
+    large: "बड़ा",
+    regular: "सामान्य",
+    detailNote: "ताज़ा सामग्री",
+    unsave: "सहेजे गए से हटाएं",
+    save: "व्यंजन सहेजें",
+    savedDevice: "इस डिवाइस पर सहेजा गया",
+    loyaltyButton: "वफादारी कार्यक्रम",
   },
 };
 
@@ -124,7 +174,7 @@ export const dishes: Dish[] = [
       en: "Wood-fired Neapolitan pizza topped with rich tomato sauce and beef pepperoni.",
       ar: "بيتزا نابوليتانية بصلصة الطماطم الغنية والبيبروني.",
       ur: "ٹماٹر ساس اور بیف پیپرونی کے ساتھ پٹزا۔",
-      hi: "टमाटर सॉس और बीफ पेपेरोनी के साथ पिज्जा।",
+      hi: "टमाटर सॉस और बीफ पेपेरोनी के साथ पिज्जा।",
     },
     prices: { small: 29, large: 37 },
     category: "pizza",
