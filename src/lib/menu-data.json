@@ -171,12 +171,12 @@
     {
       "id": "lemon-juice",
       "category": "drinks",
-      "name": "Lemon Juice",
+      "name": "Lemonade",
       "nameAr": "عصير ليمون",
       "note": "",
       "noteAr": "",
       "badge": "",
-      "image": "/menu/lemon-juice.webp",
+      "image": "/menu/lemonade.webp",
       "prices": [
         { "size": "Regular", "sizeAr": "عادي", "price": 9, "oldPrice": null }
       ]
@@ -184,12 +184,12 @@
     {
       "id": "cola",
       "category": "drinks",
-      "name": "Cola",
-      "nameAr": "كولا",
+      "name": "Coca-Cola",
+      "nameAr": "كوكاكولا",
       "note": "",
       "noteAr": "",
       "badge": "",
-      "image": "/menu/cola.webp",
+      "image": "/menu/coca-cola.webp",
       "prices": [
         { "size": "Regular", "sizeAr": "عادي", "price": 4, "oldPrice": null }
       ]
