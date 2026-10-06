@@ -5,7 +5,8 @@ export const menuCategories = [
   { id: "drink", label: { en: "Drinks", ar: "المشروبات", ur: "مشروبات", hi: "पेय" } },
 ] as const;
 export type Language = "en" | "ar" | "ur" | "hi";
-
+export const validMenuFilter = ["all", "pizza", "pasta", "salad", "drink"] as const;
+export type MenuFilter = typeof validMenuFilter[number];
 export const menuCopy: Record<Language, { nav: string; title: string; subtitle: string; search: string; all: string; favs: string; noFavs: string; addFav: string; removeFav: string; directions: string }> = {
   en: {
     nav: "Our menu",
