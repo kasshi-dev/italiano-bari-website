@@ -1,15 +1,9 @@
-export interface Dish {
-  id: string;
-  name: { en: string; ar: string; ur: string; hi: string };
-  desc: { en: string; ar: string; ur: string; hi: string };
-  price?: number;
-  prices?: { small: number; large: number };
-  category: "pizza" | "pasta" | "salad" | "drink";
-  image: string;
-  badge?: { en: string; ar: string; ur: string; hi: string };
-  options?: string[];
-}
-
+export const menuCategories = [
+  { id: "pizza", label: { en: "Pizza", ar: "البيتزا", ur: "پٹزا", hi: "पिज्जा" } },
+  { id: "pasta", label: { en: "Pasta", ar: "الباستا", ur: "پاستا", hi: "पाستا" } },
+  { id: "salad", label: { en: "Salads & sides", ar: "السلطات", ur: "سلاد", hi: "सलाद" } },
+  { id: "drink", label: { en: "Drinks", ar: "المشروبات", ur: "مشروبات", hi: "पेय" } },
+] as const;
 export type Language = "en" | "ar" | "ur" | "hi";
 
 export const menuCopy: Record<Language, { nav: string; title: string; subtitle: string; search: string; all: string; favs: string; noFavs: string; addFav: string; removeFav: string; directions: string }> = {
