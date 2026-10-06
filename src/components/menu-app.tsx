@@ -57,7 +57,7 @@ export function MenuApp({ initialCategory = "all", initialSearch = "" }: { initi
   }, [category, query, favourites]);
   const price = selected?.prices[selectedSize];
   const hero = (<section className="menu-hero" aria-labelledby="menu-hero-title">
-      <div className="menu-hero-photo"><Image src="/images/menu/bari-pizza.webp" alt="Our original Bari Pizza, served on a wooden board" fill priority sizes="(max-width: 700px) 100vw, 55vw" /></div>
+      <div className="menu-hero-photo"><Image src="/menu/bari-pizza.webp" alt="Our original Bari Pizza, served on a wooden board" fill priority sizes="(max-width: 700px) 100vw, 55vw" /></div>
       <div className="menu-hero-shade" />
       <div className="menu-hero-inner">
         <div className="menu-hero-copy"><span className="menu-hero-kicker"><span />{t.heroKicker}</span><h1 id="menu-hero-title">{t.heroFirst}<br /><em>{t.heroSecond}</em></h1><p>{t.heroDescription}</p><div className="menu-hero-actions"><button className="menu-explore-button" onClick={scrollToMenu}>{t.explore}<ArrowDown size={16} /></button><Link href="/?join=1" className="menu-join-outline">{t.join}<ArrowRight size={15} /></Link></div><span className="hero-handwritten">{t.heroTag} <Heart size={15} /></span></div>
