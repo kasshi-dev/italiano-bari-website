@@ -58,8 +58,8 @@
       "badge": "",
       "image": "/menu/vegetables-pizza.webp",
       "prices": [
-        { "size": "Small", "sizeAr": "صغير", "price": 29, "oldPrice": null },
-        { "size": "Large", "sizeAr": "كبير", "price": 37, "oldPrice": null }
+        { "size": "Small", "sizeAr": "صغير", "price": 25, "oldPrice": null },
+        { "size": "Large", "sizeAr": "كبير", "price": 33, "oldPrice": null }
       ]
     },
     {
@@ -72,8 +72,8 @@
       "badge": "",
       "image": "/menu/margherita-pizza.webp",
       "prices": [
-        { "size": "Small", "sizeAr": "صغير", "price": 29, "oldPrice": null },
-        { "size": "Large", "sizeAr": "كبير", "price": 37, "oldPrice": null }
+        { "size": "Small", "sizeAr": "صغير", "price": 25, "oldPrice": null },
+        { "size": "Large", "sizeAr": "كبير", "price": 33, "oldPrice": null }
       ]
     },
     {
