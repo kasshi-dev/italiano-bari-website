@@ -1,48 +1,37 @@
 export interface Dish {
   id: string;
-  name: { en: string; ar: string };
-  desc: { en: string; ar: string };
+  name: any;
+  desc: any;
+  nameAr?: string;
+  descAr?: string;
+  note?: any;
   price?: number;
-  prices?: { small: number; large: number };
-  category: "pizza" | "pasta" | "salad" | "drink";
+  prices?: any;
+  category: string;
   image: string;
-  badge?: { en: string; ar: string };
-  options?: string[];
+  badge?: any;
+  options?: any;
 }
 
-export type Language = "en" | "ar";
+export type Language = "en" | "ar" | "ur" | "hi";
 
-export const validMenuFilter = ["all", "pizza", "pasta", "salad", "drink"] as const;
-export type MenuFilter = (typeof validMenuFilter)[number];
+export const validMenuFilter = ["all", "saved", "pizza", "pasta", "salad", "drink", "drinks"] as const;
+export type MenuFilter = string;
 
 export function normalizeMenuSearch(query: string): string {
   return query.trim().toLowerCase();
 }
 
-export const menuCategories = [
-  { id: "pizza", label: { en: "Pizza", ar: "البيتزا" } },
-  { id: "pasta", label: { en: "Pasta", ar: "الباستا" } },
-  { id: "salad", label: { en: "Salads & sides", ar: "السلطات" } },
-  { id: "drink", label: { en: "Drinks", ar: "المشروبات" } },
-] as const;
+export const menuCategories: any[] = [
+  { id: "pizza", label: { en: "Pizza", ar: "البيتزا", ur: "پٹزا", hi: "पिज्जा" }, nameAr: "البيتزا" },
+  { id: "pasta", label: { en: "Pasta", ar: "الباستا", ur: "پاستا", hi: "पास्ता" }, nameAr: "الباستا" },
+  { id: "salad", label: { en: "Salads & sides", ar: "السلطات", ur: "سلاد", hi: "सलाद" }, nameAr: "السلطات" },
+  { id: "drink", label: { en: "Drinks", ar: "المشروبات", ur: "مشروبات", hi: "पेय" }, nameAr: "المشروبات" },
+];
 
 export const categories = menuCategories;
 
-export const menuCopy: Record<
-  Language,
-  {
-    nav: string;
-    title: string;
-    subtitle: string;
-    search: string;
-    all: string;
-    favs: string;
-    noFavs: string;
-    addFav: string;
-    removeFav: string;
-    directions: string;
-  }
-> = {
+export const menuCopy: Record<string, any> = {
   en: {
     nav: "Our menu",
     title: "Something delicious awaits.",
@@ -50,7 +39,7 @@ export const menuCopy: Record<
     search: "Find a dish...",
     all: "All dishes",
     favs: "Favourites",
-    noFavs: "No favourite dishes yet. Tap the heart on any item to save it here.",
+    noFavs: "No favourite dishes yet.",
     addFav: "Add to favourites",
     removeFav: "Remove from favourites",
     directions: "Get directions",
@@ -62,10 +51,34 @@ export const menuCopy: Record<
     search: "ابحث عن طبق...",
     all: "كل الأطباق",
     favs: "المفضلة",
-    noFavs: "لا توجد أطباق مفضلة بعد. اضغط على القلب للحفظ.",
+    noFavs: "لا توجد أطباق مفضلة بعد.",
     addFav: "إضافة للمفضلة",
     removeFav: "إزالة من المفضلة",
     directions: "الاتجاهات",
+  },
+  ur: {
+    nav: "ہمارا مینو",
+    title: "کچھ لذیذ آپ کا منتظر ہے۔",
+    subtitle: "اپنی پسندیدہ ڈش تلاش کریں۔",
+    search: "ڈش تلاش کریں...",
+    all: "تمام ڈشز",
+    favs: "پسندیدہ",
+    noFavs: "ابھی تک کوئی پسندیدہ ڈش نہیں۔",
+    addFav: "پسندیدہ میں شامل کریں",
+    removeFav: "پسندیدہ سے ہٹائیں",
+    directions: "راستہ حاصل کریں",
+  },
+  hi: {
+    nav: "हमारा मेनू",
+    title: "कुछ स्वादिष्ट आपका इंतज़ार कर रहा है।",
+    subtitle: "अपनी पसंदीदा डिश खोजें।",
+    search: "डिश खोजें...",
+    all: "सभी व्यंजन",
+    favs: "पसंदीदा",
+    noFavs: "अभी कोई पसंदीदा डिश नहीं है।",
+    addFav: "पसंदीदा में जोड़ें",
+    removeFav: "पसंदीदा से हटाएं",
+    directions: "दिशा-निर्देश",
   },
 };
 
@@ -80,50 +93,52 @@ export const restaurantLinks = {
 export const dishes: Dish[] = [
   {
     id: "bari-pizza",
-    name: { en: "Bari Pizza", ar: "باري بيتزا" },
-    desc: {
-      en: "Authentic Italian Neapolitan-style pizza.",
-      ar: "بيتزا نابوليتانية إيطالية أصلية.",
-    },
-    prices: { small: 29, large: 37 },
+    name: "Bari Pizza",
+    nameAr: "باري بيتزا",
+    desc: "Authentic Italian Neapolitan-style pizza.",
+    descAr: "بيتزا نابوليتانية إيطالية أصلية.",
+    price: 29,
+    prices: [
+      { size: "Small", price: 29 },
+      { size: "Large", price: 37 },
+    ],
     category: "pizza",
     image: "/dishes/bari-pizza.png",
-    badge: { en: "NEW · SPECIAL", ar: "جديد · مميز" },
     options: ["Spicy", "Non-spicy"],
   },
   {
     id: "pepperoni-pizza",
-    name: { en: "Pepperoni Pizza", ar: "بيتزا بيبروني" },
-    desc: {
-      en: "Wood-fired Neapolitan pizza with pepperoni.",
-      ar: "بيتزا نابوليتانية بالبيبروني.",
-    },
-    prices: { small: 29, large: 37 },
+    name: "Pepperoni Pizza",
+    nameAr: "بيتزا بيبروني",
+    desc: "Wood-fired Neapolitan pizza with pepperoni.",
+    descAr: "بيتزا نابوليتانية بالبيبروني.",
+    price: 29,
+    prices: [
+      { size: "Small", price: 29 },
+      { size: "Large", price: 37 },
+    ],
     category: "pizza",
     image: "/dishes/pepperoni-pizza.png",
   },
   {
     id: "spaghetti-red-sauce",
-    name: { en: "Spaghetti Pasta", ar: "سباجيتي صلصة حمراء" },
-    desc: {
-      en: "Classic spaghetti tossed in a rich tomato sauce.",
-      ar: "سباجيتي كلاسيكية بصلصة الطماطم.",
-    },
+    name: "Spaghetti Pasta",
+    nameAr: "سباجيتي صلصة حمراء",
+    desc: "Classic spaghetti tossed in a rich tomato sauce.",
+    descAr: "سباجيتي كلاسيكية بصلصة الطماطم.",
     price: 27,
+    prices: [],
     category: "pasta",
     image: "/dishes/spaghetti.png",
   },
   {
     id: "penne-pink-sauce",
-    name: {
-      en: "Penne Pasta With Chicken",
-      ar: "بيني بينك صوص مع دجاج",
-    },
-    desc: {
-      en: "Penne pasta in a mixture of tomato and cream sauce.",
-      ar: "باستا بيني بصلصة بينك ممزوجة مع قطع الدجاج.",
-    },
+    name: "Penne Pasta With Chicken",
+    nameAr: "بيني بينك صوص مع دجاج",
+    desc: "Penne pasta in tomato and cream sauce.",
+    descAr: "باستا بيني بصلصة بينك مع قطع الدجاج.",
     price: 27,
+    prices: [],
     category: "pasta",
     image: "/dishes/penne.png",
   },
