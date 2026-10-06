@@ -1,4 +1,16 @@
-import type { Dish, Language } from "./types";
+export interface Dish {
+  id: string;
+  name: { en: string; ar: string; ur: string; hi: string };
+  desc: { en: string; ar: string; ur: string; hi: string };
+  price?: number;
+  prices?: { small: number; large: number };
+  category: "pizza" | "pasta" | "salad" | "drink";
+  image: string;
+  badge?: { en: string; ar: string; ur: string; hi: string };
+  options?: string[];
+}
+
+export type Language = "en" | "ar" | "ur" | "hi";
 
 export const menuCopy: Record<Language, { nav: string; title: string; subtitle: string; search: string; all: string; favs: string; noFavs: string; addFav: string; removeFav: string; directions: string }> = {
   en: {
@@ -52,7 +64,7 @@ export const menuCopy: Record<Language, { nav: string; title: string; subtitle: 
 };
 
 export const restaurantLinks = {
-  location: "https://maps.google.com/?q=Italiano+Bari+Dammam",
+  location: "url?id=31?q=Italiano+Bari+Dammam",
   instagram: "https://instagram.com",
   tiktok: "https://tiktok.com",
 };
@@ -134,12 +146,12 @@ export const dishes: Dish[] = [
   },
   {
     id: "bianca-pizza",
-    name: { en: "Bianca Pizza", ar: "بيانكا بيتزا", ur: "بیانکا پٹزا", hi: "बियांका पिज्जा" },
+    name: { en: "Bianca Pizza", ar: "بيانكا بيتزا", ur: "بيانكا پٹزا", hi: "बियांका पिज्जा" },
     desc: {
       en: "Wood-fired Neapolitan pizza topped with a creamy white sauce base, melted mozzarella cheese, seasoned chicken cubes, and a drizzle of olive oil.",
       ar: "بيتزا نابوليتانية بصلصة البيضاء الكريمة، جبن الموزاريلا، قطع الدجاج المتبلة وزيت الزيتون.",
       ur: "کریمی وائٹ ساس، موزاریلا چیز، چکن کے ٹکڑے اور زیتون کے تیل کے ساتھ پٹزا۔",
-      hi: "क्रीमी व्हाइट सॉस, मोज़ारेلا, चिकन और जैतून के तेल के साथ पिज्जा।"
+      hi: "क्रीमी व्हाइट सॉस, मोज़ारेला, चिकन और जैतून के तेल के साथ पिज्जा।"
     },
     prices: { small: 29, large: 37 },
     category: "pizza",
@@ -204,7 +216,7 @@ export const dishes: Dish[] = [
       en: "Fresh sliced peaches over crisp Romaine lettuce and wild arugula (gargir), topped with parmesan cheese and our creamy house dressing.",
       ar: "شرائح الخوخ الطازجة على الخس والجرجير مع جبن البارميزان والصوص الكريمي الخاص.",
       ur: "تازہ آڑو، خس اور جرجیر، پارمیسان چیز اور کریمی ڈریسنگ کے ساتھ۔",
-      hi: "ताजा आड़ू, लेट्यूस और अरुगुلا परमेसन पनीर के साथ।"
+      hi: "ताजा आड़ू, लेट्यूस और अरुगुला परमेसन पनीर के साथ।"
     },
     price: 22,
     category: "salad",
