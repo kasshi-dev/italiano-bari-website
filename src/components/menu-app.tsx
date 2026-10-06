@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
-import Image from "next/image";
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowDown, ArrowRight, ArrowUpRight, Check, ChefHat, ChevronRight, Flame, Gift, GlassWater, Heart, Leaf, MapPin, Pizza, Plus, Salad, Search, Soup, Sparkles, UtensilsCrossed, X } from "lucide-react";
