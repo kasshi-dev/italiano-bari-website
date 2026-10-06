@@ -7,14 +7,27 @@ export function Brand({ compact = false, light = false }: { compact?: boolean; l
       aria-label="Italiano Bari home" 
       className={`brand brand-original ${compact ? "brand-compact" : ""} ${light ? "brand-light" : ""}`}
     >
-      <img 
+      <svg 
         className="brand-logo" 
-        src="/icon.svg" 
-        alt="Italiano Bari" 
         width="48" 
         height="48" 
-        style={{ width: '48px', height: '48px', display: 'inline-block' }}
-      />
+        viewBox="0 0 100 100" 
+        style={{ width: '48px', height: '48px', borderRadius: '50%', flexShrink: 0 }}
+      >
+        <circle cx="50" cy="50" r="50" fill="#2d5a3f" />
+        <text 
+          x="50%" 
+          y="58%" 
+          dominantBaseline="middle" 
+          textAnchor="middle" 
+          fill="#ffffff" 
+          fontSize="32" 
+          fontWeight="bold"
+          fontFamily="serif"
+        >
+          IB
+        </text>
+      </svg>
       {compact ? (
         <span className="brand-compact-name">Italiano Bari</span>
       ) : (
