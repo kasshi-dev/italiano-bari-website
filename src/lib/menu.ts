@@ -106,10 +106,10 @@ export const dishes: Dish[] = [
     id: "bari-pizza",
     name: { en: "Bari Pizza", ar: "باري بيتزا", ur: "باری پٹزا", hi: "बारी पिज्जा" },
     desc: {
-      en: "Authentic Italian Neapolitan-style pizza crafted with a traditional leopard-spotted artisan crust. Topped with rich Italian tomato sauce, melted mozzarella fior di latte, savory seasoned chicken, and finished with a chef’s signature sauce drizzle.",
-      ar: "بيتزا نابوليتانية إيطالية أصلية بعجينة تقليدية، مغطاة بصلصة الطماطم الغنية وجبن الموزاريلا والدجاج المتبل مع صوص الشيف الخاص.",
-      ur: "روایتی نیپولیٹن انداز کی پٹزا جس پر ٹماٹر ساس، موزاریلا چیز، مصالحے دار چکن اور شیف کا خاص ساس شامل ہے۔",
-      hi: "पारंपरिक इतालवी नेपोलिटन पिज्जा, टमाटर सॉस, मोज़ारेला पनीर, चिकन और शेफ के सिग्नेचर सॉस के साथ।",
+      en: "Authentic Italian Neapolitan-style pizza crafted with a traditional leopard-spotted artisan crust.",
+      ar: "بيتزا نابوليتانية إيطالية أصلية بعجينة تقليدية.",
+      ur: "روایتی نیپولیٹن انداز کی پٹزا۔",
+      hi: "पारंपरिक इतालवी नेपोलिटन पिज्जा।",
     },
     prices: { small: 29, large: 37 },
     category: "pizza",
@@ -121,14 +121,28 @@ export const dishes: Dish[] = [
     id: "pepperoni-pizza",
     name: { en: "Pepperoni Pizza", ar: "بيتزا بيبروني", ur: "پیپرونی پٹزا", hi: "पेपेरोनी पिज्जा" },
     desc: {
-      en: "Wood-fired Neapolitan pizza topped with rich tomato sauce, melted mozzarella cheese, and crispy beef pepperoni slices.",
-      ar: "بيتزا نابوليتانية بصلصة الطماطم الغنية، جبن الموزاريلا الذائب وشريحات البيبروني المقرمشة.",
-      ur: "ٹماٹر ساس، پگھلی ہوئی موزاریلا چیز اور بیف پیپرونی کے ساتھ وڈ فائرڈ پٹزا۔",
-      hi: "टमाटर सॉस, मोज़ारेला पनीर और बीफ पेपेरोनी स्लाइस के साथ वुड-फायर्ड पिज्जा।",
+      en: "Wood-fired Neapolitan pizza topped with rich tomato sauce and beef pepperoni.",
+      ar: "بيتزا نابوليتانية بصلصة الطماطم الغنية والبيبروني.",
+      ur: "ٹماٹر ساس اور بیف پیپرونی کے ساتھ پٹزا۔",
+      hi: "टमाटर सॉس और बीफ पेपेरोनी के साथ पिज्जा।",
     },
     prices: { small: 29, large: 37 },
     category: "pizza",
     image: "/dishes/pepperoni-pizza.png",
   },
+  {
+    id: "spaghetti-red-sauce",
+    name: { en: "Spaghetti Pasta", ar: "سباجيتي صلصة حمراء", ur: "اسپیگیٹی", hi: "स्पैगेटी" },
+    desc: {
+      en: "Classic spaghetti tossed in a rich tomato sauce.",
+      ar: "سباجيتي كلاسيكية بصلصة الطماطم.",
+      ur: "کلاسیکی ٹماٹر ساس اسپیگیٹی۔",
+      hi: "क्लासिक टमाटर सॉस स्पैगेटी।",
+    },
+    price: 27,
+    category: "pasta",
+    image: "/dishes/spaghetti.png",
+  },
+];
 
-  
+export const menuItems = dishes;
