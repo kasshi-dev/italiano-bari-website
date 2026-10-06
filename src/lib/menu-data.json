@@ -21,19 +21,21 @@
       ]
     },
     {
-      "id": "pepperoni-pizza",
-      "category": "pizza",
-      "name": "Pepperoni Pizza",
-      "nameAr": "بيتزا ببروني",
-      "note": "",
-      "noteAr": "",
-      "badge": "",
-      "image": "/menu/pepperoni-pizza.webp",
-      "prices": [
-        { "size": "Small", "sizeAr": "صغير", "price": 29, "oldPrice": null },
-        { "size": "Large", "sizeAr": "كبير", "price": 37, "oldPrice": null }
-      ]
-    },
+  "id": "pepperoni-pizza",
+  "category": "pizza",
+  "name": "Pepperoni Pizza",
+  "nameAr": "بيتزا ببروني",
+  "description": "Classic beef pepperoni with melted mozzarella cheese and tomato sauce.",
+  "descriptionAr": "بيتزا الببروني الكلاسيكية مع جبنة الموزاريلا المذابة وصلصة الطماطم.",
+  "note": "",
+  "noteAr": "",
+  "badge": "",
+  "image": "/menu/pepperoni-pizza.webp",
+  "prices": [
+    { "size": "Small", "sizeAr": "صغير", "price": 29, "oldPrice": null },
+    { "size": "Large", "sizeAr": "كبير", "price": 37, "oldPrice": null }
+  ]
+},
     {
       "id": "truffle-pizza",
       "category": "pizza",
