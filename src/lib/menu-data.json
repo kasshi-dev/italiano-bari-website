@@ -100,7 +100,7 @@
       "badge": "",
       "image": "/menu/spaghetti-pasta-red-sauce.webp",
       "prices": [
-        { "size": "Regular", "sizeAr": "عادي", "price": 25, "oldPrice": null }
+        { "size": "Regular", "sizeAr": "عادي", "price": 29, "oldPrice": null }
       ]
     },
     {
@@ -113,7 +113,7 @@
       "badge": "",
       "image": "/menu/tagliatelle-pasta-with-chicken-white-sauce.webp",
       "prices": [
-        { "size": "Regular", "sizeAr": "عادي", "price": 27, "oldPrice": null }
+        { "size": "Regular", "sizeAr": "عادي", "price": 29, "oldPrice": null }
       ]
     },
     {
@@ -126,7 +126,7 @@
       "badge": "",
       "image": "/menu/penne-pasta-with-chicken-mixed-sauce.webp",
       "prices": [
-        { "size": "Regular", "sizeAr": "عادي", "price": 27, "oldPrice": null }
+        { "size": "Regular", "sizeAr": "عادي", "price": 29, "oldPrice": null }
       ]
     },
     {
