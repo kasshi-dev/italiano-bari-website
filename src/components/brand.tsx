@@ -10,9 +10,9 @@ export function Brand({ compact = false, light = false }: { compact?: boolean; l
       <img 
         className="brand-logo" 
         src="/icon.svg" 
-        alt="Italiano Bari · إيتاليانو باري" 
-        width={96} 
-        height={96} 
+        alt="Italiano Bari" 
+        width="48" 
+        height="48" 
       />
       {compact ? (
         <span className="brand-compact-name">Italiano Bari</span>
