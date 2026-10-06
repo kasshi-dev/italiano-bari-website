@@ -7,6 +7,9 @@ export const menuCategories = [
 export type Language = "en" | "ar" | "ur" | "hi";
 export const validMenuFilter = ["all", "pizza", "pasta", "salad", "drink"] as const;
 export type MenuFilter = typeof validMenuFilter[number];
+export function normalizeMenuSearch(query: string): string {
+  return query.trim().toLowerCase();
+}
 export const menuCopy: Record<Language, { nav: string; title: string; subtitle: string; search: string; all: string; favs: string; noFavs: string; addFav: string; removeFav: string; directions: string }> = {
   en: {
     nav: "Our menu",
