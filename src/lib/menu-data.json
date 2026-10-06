@@ -1,216 +1,224 @@
-[
-  {
-    "id": "bari-pizza",
-    "category": "pizza",
-    "name": "Bari Pizza",
-    "nameAr": "باري بيتزا",
-    "note": "Spicy / non-spicy",
-    "noteAr": "حار / غير حار",
-    "badge": "Signature",
-    "image": "/menu/bari-pizza.webp",
-    "prices": [
-      { "size": "Small", "sizeAr": "صغير", "price": 29, "oldPrice": null },
-      { "size": "Large", "sizeAr": "كبير", "price": 37, "oldPrice": null }
-    ]
-  },
-  {
-    "id": "pepperoni-pizza",
-    "category": "pizza",
-    "name": "Pepperoni Pizza",
-    "nameAr": "بيتزا ببروني",
-    "note": "",
-    "noteAr": "",
-    "badge": "",
-    "image": "/menu/pepperoni-pizza.webp",
-    "prices": [
-      { "size": "Small", "sizeAr": "صغير", "price": 29, "oldPrice": null },
-      { "size": "Large", "sizeAr": "كبير", "price": 37, "oldPrice": null }
-    ]
-  },
-  {
-    "id": "truffle-pizza",
-    "category": "pizza",
-    "name": "Truffle Pizza",
-    "nameAr": "بيتزا ترفل",
-    "note": "",
-    "noteAr": "",
-    "badge": "",
-    "image": "/menu/truffle-pizza.webp",
-    "prices": [
-      { "size": "Small", "sizeAr": "صغير", "price": 29, "oldPrice": null },
-      { "size": "Large", "sizeAr": "كبير", "price": 37, "oldPrice": null }
-    ]
-  },
-  {
-    "id": "vegetables-pizza",
-    "category": "pizza",
-    "name": "Vegetables Pizza",
-    "nameAr": "بيتزا خضار",
-    "note": "",
-    "noteAr": "",
-    "badge": "",
-    "image": "/menu/vegetables-pizza.webp",
-    "prices": [
-      { "size": "Small", "sizeAr": "صغير", "price": 29, "oldPrice": null },
-      { "size": "Large", "sizeAr": "كبير", "price": 37, "oldPrice": null }
-    ]
-  },
-  {
-    "id": "margherita-pizza",
-    "category": "pizza",
-    "name": "Margherita Pizza",
-    "nameAr": "بيتزا مارجريتا",
-    "note": "",
-    "noteAr": "",
-    "badge": "",
-    "image": "/menu/margherita-pizza.webp",
-    "prices": [
-      { "size": "Small", "sizeAr": "صغير", "price": 29, "oldPrice": null },
-      { "size": "Large", "sizeAr": "كبير", "price": 37, "oldPrice": null }
-    ]
-  },
-  {
-    "id": "bianca-chicken-pizza",
-    "category": "pizza",
-    "name": "Bianca Chicken Pizza",
-    "nameAr": "بيتزا بيستو دجاج",
-    "note": "",
-    "noteAr": "",
-    "badge": "",
-    "image": "/menu/bianca-chicken-pizza.webp",
-    "prices": [
-      { "size": "Small", "sizeAr": "صغير", "price": 29, "oldPrice": null },
-      { "size": "Large", "sizeAr": "كبير", "price": 37, "oldPrice": null }
-    ]
-  },
-  {
-    "id": "spaghetti-pasta-red-sauce",
-    "category": "pasta",
-    "name": "Spaghetti Pasta Red Sauce",
-    "nameAr": "سباجيتي صلصة حمراء",
-    "note": "",
-    "noteAr": "",
-    "badge": "",
-    "image": "/menu/spaghetti-pasta-red-sauce.webp",
-    "prices": [
-      { "size": "Regular", "sizeAr": "عادي", "price": 25, "oldPrice": null }
-    ]
-  },
-  {
-    "id": "tagliatelle-pasta-chicken",
-    "category": "pasta",
-    "name": "Tagliatelle Pasta Chicken",
-    "nameAr": "تالياني دجاج",
-    "note": "",
-    "noteAr": "",
-    "badge": "",
-    "image": "/menu/tagliatelle-pasta-chicken.webp",
-    "prices": [
-      { "size": "Regular", "sizeAr": "عادي", "price": 27, "oldPrice": null }
-    ]
-  },
-  {
-    "id": "penne-pasta-pink-sauce",
-    "category": "pasta",
-    "name": "Penne Pasta Pink Sauce",
-    "nameAr": "بيني بينك صوص",
-    "note": "",
-    "noteAr": "",
-    "badge": "",
-    "image": "/menu/penne-pasta-pink-sauce.webp",
-    "prices": [
-      { "size": "Regular", "sizeAr": "عادي", "price": 27, "oldPrice": null }
-    ]
-  },
-  {
-    "id": "fries",
-    "category": "salad",
-    "name": "Fries",
-    "nameAr": "بطاطس",
-    "note": "",
-    "noteAr": "",
-    "badge": "",
-    "image": "/menu/fries.webp",
-    "prices": [
-      { "size": "Regular", "sizeAr": "عادي", "price": 11, "oldPrice": null }
-    ]
-  },
-  {
-    "id": "beetroot-salad",
-    "category": "salad",
-    "name": "Beetroot Salad",
-    "nameAr": "سلطة شمندر",
-    "note": "",
-    "noteAr": "",
-    "badge": "",
-    "image": "/menu/beetroot-salad.webp",
-    "prices": [
-      { "size": "Regular", "sizeAr": "عادي", "price": 17, "oldPrice": null }
-    ]
-  },
-  {
-    "id": "peach-salad",
-    "category": "salad",
-    "name": "Peach Salad",
-    "nameAr": "سلطة الخوخ",
-    "note": "",
-    "noteAr": "",
-    "badge": "",
-    "image": "/menu/peach-salad.webp",
-    "prices": [
-      { "size": "Regular", "sizeAr": "عادي", "price": 17, "oldPrice": null }
-    ]
-  },
-  {
-    "id": "lemon-juice",
-    "category": "drinks",
-    "name": "Lemon Juice",
-    "nameAr": "عصير ليمون",
-    "note": "",
-    "noteAr": "",
-    "badge": "",
-    "image": "/menu/lemon-juice.webp",
-    "prices": [
-      { "size": "Regular", "sizeAr": "عادي", "price": 9, "oldPrice": null }
-    ]
-  },
-  {
-    "id": "cola",
-    "category": "drinks",
-    "name": "Cola",
-    "nameAr": "كولا",
-    "note": "",
-    "noteAr": "",
-    "badge": "",
-    "image": "/menu/cola.webp",
-    "prices": [
-      { "size": "Regular", "sizeAr": "عادي", "price": 4, "oldPrice": null }
-    ]
-  },
-  {
-    "id": "sprite",
-    "category": "drinks",
-    "name": "Sprite",
-    "nameAr": "سبرايت",
-    "note": "",
-    "noteAr": "",
-    "badge": "",
-    "image": "/menu/sprite.webp",
-    "prices": [
-      { "size": "Regular", "sizeAr": "عادي", "price": 4, "oldPrice": null }
-    ]
-  },
-  {
-    "id": "water",
-    "category": "drinks",
-    "name": "Water",
-    "nameAr": "ماء",
-    "note": "",
-    "noteAr": "",
-    "badge": "",
-    "image": "/menu/water.webp",
-    "prices": [
-      { "size": "Regular", "sizeAr": "عادي", "price": 2, "oldPrice": null }
-    ]
-  }
-]
+{
+  "sourceUrl": "https://italiano-bari.vercel.app",
+  "links": [
+    { "name": "Location", "url": "https://maps.google.com" },
+    { "name": "Instagram", "url": "https://instagram.com" },
+    { "name": "TikTok", "url": "https://tiktok.com" }
+  ],
+  "items": [
+    {
+      "id": "bari-pizza",
+      "category": "pizza",
+      "name": "Bari Pizza",
+      "nameAr": "باري بيتزا",
+      "note": "Spicy / non-spicy",
+      "noteAr": "حار / غير حار",
+      "badge": "Signature",
+      "image": "/menu/bari-pizza.webp",
+      "prices": [
+        { "size": "Small", "sizeAr": "صغير", "price": 29, "oldPrice": null },
+        { "size": "Large", "sizeAr": "كبير", "price": 37, "oldPrice": null }
+      ]
+    },
+    {
+      "id": "pepperoni-pizza",
+      "category": "pizza",
+      "name": "Pepperoni Pizza",
+      "nameAr": "بيتزا ببروني",
+      "note": "",
+      "noteAr": "",
+      "badge": "",
+      "image": "/menu/pepperoni-pizza.webp",
+      "prices": [
+        { "size": "Small", "sizeAr": "صغير", "price": 29, "oldPrice": null },
+        { "size": "Large", "sizeAr": "كبير", "price": 37, "oldPrice": null }
+      ]
+    },
+    {
+      "id": "truffle-pizza",
+      "category": "pizza",
+      "name": "Truffle Pizza",
+      "nameAr": "بيتزا ترفل",
+      "note": "",
+      "noteAr": "",
+      "badge": "",
+      "image": "/menu/truffle-pizza.webp",
+      "prices": [
+        { "size": "Small", "sizeAr": "صغير", "price": 29, "oldPrice": null },
+        { "size": "Large", "sizeAr": "كبير", "price": 37, "oldPrice": null }
+      ]
+    },
+    {
+      "id": "vegetables-pizza",
+      "category": "pizza",
+      "name": "Vegetables Pizza",
+      "nameAr": "بيتزا خضار",
+      "note": "",
+      "noteAr": "",
+      "badge": "",
+      "image": "/menu/vegetables-pizza.webp",
+      "prices": [
+        { "size": "Small", "sizeAr": "صغير", "price": 29, "oldPrice": null },
+        { "size": "Large", "sizeAr": "كبير", "price": 37, "oldPrice": null }
+      ]
+    },
+    {
+      "id": "margherita-pizza",
+      "category": "pizza",
+      "name": "Margherita Pizza",
+      "nameAr": "بيتزا مارجريتا",
+      "note": "",
+      "noteAr": "",
+      "badge": "",
+      "image": "/menu/margherita-pizza.webp",
+      "prices": [
+        { "size": "Small", "sizeAr": "صغير", "price": 29, "oldPrice": null },
+        { "size": "Large", "sizeAr": "كبير", "price": 37, "oldPrice": null }
+      ]
+    },
+    {
+      "id": "bianca-chicken-pizza",
+      "category": "pizza",
+      "name": "Bianca Chicken Pizza",
+      "nameAr": "بيتزا بيستو دجاج",
+      "note": "",
+      "noteAr": "",
+      "badge": "",
+      "image": "/menu/bianca-chicken-pizza.webp",
+      "prices": [
+        { "size": "Small", "sizeAr": "صغير", "price": 29, "oldPrice": null },
+        { "size": "Large", "sizeAr": "كبير", "price": 37, "oldPrice": null }
+      ]
+    },
+    {
+      "id": "spaghetti-pasta-red-sauce",
+      "category": "pasta",
+      "name": "Spaghetti Pasta Red Sauce",
+      "nameAr": "سباجيتي صلصة حمراء",
+      "note": "",
+      "noteAr": "",
+      "badge": "",
+      "image": "/menu/spaghetti-pasta-red-sauce.webp",
+      "prices": [
+        { "size": "Regular", "sizeAr": "عادي", "price": 25, "oldPrice": null }
+      ]
+    },
+    {
+      "id": "tagliatelle-pasta-chicken",
+      "category": "pasta",
+      "name": "Tagliatelle Pasta Chicken",
+      "nameAr": "تالياني دجاج",
+      "note": "",
+      "noteAr": "",
+      "badge": "",
+      "image": "/menu/tagliatelle-pasta-chicken.webp",
+      "prices": [
+        { "size": "Regular", "sizeAr": "عادي", "price": 27, "oldPrice": null }
+      ]
+    },
+    {
+      "id": "penne-pasta-pink-sauce",
+      "category": "pasta",
+      "name": "Penne Pasta Pink Sauce",
+      "nameAr": "بيني بينك صوص",
+      "note": "",
+      "noteAr": "",
+      "badge": "",
+      "image": "/menu/penne-pasta-pink-sauce.webp",
+      "prices": [
+        { "size": "Regular", "sizeAr": "عادي", "price": 27, "oldPrice": null }
+      ]
+    },
+    {
+      "id": "fries",
+      "category": "salad",
+      "name": "Fries",
+      "nameAr": "بطاطس",
+      "note": "",
+      "noteAr": "",
+      "badge": "",
+      "image": "/menu/fries.webp",
+      "prices": [
+        { "size": "Regular", "sizeAr": "عادي", "price": 11, "oldPrice": null }
+      ]
+    },
+    {
+      "id": "beetroot-salad",
+      "category": "salad",
+      "name": "Beetroot Salad",
+      "nameAr": "سلطة شمندر",
+      "note": "",
+      "noteAr": "",
+      "badge": "",
+      "image": "/menu/beetroot-salad.webp",
+      "prices": [
+        { "size": "Regular", "sizeAr": "عادي", "price": 17, "oldPrice": null }
+      ]
+    },
+    {
+      "id": "peach-salad",
+      "category": "salad",
+      "name": "Peach Salad",
+      "nameAr": "سلطة الخوخ",
+      "note": "",
+      "noteAr": "",
+      "badge": "",
+      "image": "/menu/peach-salad.webp",
+      "prices": [
+        { "size": "Regular", "sizeAr": "عادي", "price": 17, "oldPrice": null }
+      ]
+    },
+    {
+      "id": "lemon-juice",
+      "category": "drinks",
+      "name": "Lemon Juice",
+      "nameAr": "عصير ليمون",
+      "note": "",
+      "noteAr": "",
+      "badge": "",
+      "image": "/menu/lemon-juice.webp",
+      "prices": [
+        { "size": "Regular", "sizeAr": "عادي", "price": 9, "oldPrice": null }
+      ]
+    },
+    {
+      "id": "cola",
+      "category": "drinks",
+      "name": "Cola",
+      "nameAr": "كولا",
+      "note": "",
+      "noteAr": "",
+      "badge": "",
+      "image": "/menu/cola.webp",
+      "prices": [
+        { "size": "Regular", "sizeAr": "عادي", "price": 4, "oldPrice": null }
+      ]
+    },
+    {
+      "id": "sprite",
+      "category": "drinks",
+      "name": "Sprite",
+      "nameAr": "سبرايت",
+      "note": "",
+      "noteAr": "",
+      "badge": "",
+      "image": "/menu/sprite.webp",
+      "prices": [
+        { "size": "Regular", "sizeAr": "عادي", "price": 4, "oldPrice": null }
+      ]
+    },
+    {
+      "id": "water",
+      "category": "drinks",
+      "name": "Water",
+      "nameAr": "ماء",
+      "note": "",
+      "noteAr": "",
+      "badge": "",
+      "image": "/menu/water.webp",
+      "prices": [
+        { "size": "Regular", "sizeAr": "عادي", "price": 2, "oldPrice": null }
+      ]
+    }
+  ]
+}
