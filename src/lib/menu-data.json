@@ -25,6 +25,9 @@
   "category": "pizza",
   "name": "Pepperoni Pizza",
   "nameAr": "بيتزا ببروني",
+      <p className="text-sm text-gray-600 mt-1">
+  {language === 'ar' ? item.descriptionAr : item.description}
+</p>
   "description": "Classic beef pepperoni with melted mozzarella cheese and tomato sauce.",
   "descriptionAr": "بيتزا الببروني الكلاسيكية مع جبنة الموزاريلا المذابة وصلصة الطماطم.",
   "note": "",
