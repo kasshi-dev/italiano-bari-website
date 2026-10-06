@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState, type ReactNode } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, ChevronDown, MapPin, Menu, Music2, X } from "lucide-react";
 import { copy } from "@/lib/content";
@@ -10,6 +9,7 @@ import type { Language, Member, View } from "@/lib/types";
 function InstagramIcon({ size = 16 }: { size?: number }) {
   return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.4" cy="6.7" r=".7" fill="currentColor" stroke="none" /></svg>;
 }
+
 export function Shell({ children, hero, active, language = "en", onLanguage, onJoin, member, rewardCount = 0 }: { children: ReactNode; hero?: ReactNode; active: View; language?: Language; onLanguage?: (language: Language) => void; onJoin?: () => void; member?: Member | null; rewardCount?: number }) {
   const [open, setOpen] = useState(false);
   const [offline, setOffline] = useState(false);
@@ -28,7 +28,6 @@ export function Shell({ children, hero, active, language = "en", onLanguage, onJ
   ];
   useEffect(() => { document.documentElement.lang = language; }, [language]);
   useEffect(() => {
-    // This is a regular website. Remove any service worker or cache left by the earlier app version.
     if ("serviceWorker" in navigator) navigator.serviceWorker.getRegistrations().then((items) => items.forEach((item) => void item.unregister())).catch(() => {});
     if ("caches" in window) caches.keys().then((keys) => keys.filter((key) => key.startsWith("bari-static-")).forEach((key) => void caches.delete(key))).catch(() => {});
     const updateOnline = () => setOffline(!navigator.onLine);
@@ -40,10 +39,16 @@ export function Shell({ children, hero, active, language = "en", onLanguage, onJ
     return () => { window.removeEventListener("online", updateOnline); window.removeEventListener("offline", updateOnline); window.removeEventListener("keydown", onKey); };
   }, []);
   const account = onJoin ? <button className={`header-account ${member ? "logged-in" : ""}`} onClick={onJoin}>{member ? <><span className="avatar-small">{member.name[0].toUpperCase()}</span><span>{member.name.split(" ")[0]}</span><ChevronDown size={12} /></> : <>{t.join}<ArrowRight size={14} /></>}</button> : <Link href="/?join=1" className="header-account">{t.join}<ArrowRight size={14} /></Link>;
+  
   return <div className="app-shell site-shell">
     <header className="site-header">
       <div className="site-header-inner">
-        <Link href="/" className="site-logo" aria-label="Italiano Bari home" onClick={() => setOpen(false)}><Image src="/images/italiano-bari-logo.png" alt="" width={48} height={48} priority /><span><strong>Italiano Bari</strong><small>TRATTORIA · DAMMAM</small></span></Link>
+        <Link href="/" className="site-logo" aria-label="Italiano Bari home" onClick={() => setOpen(false)}>
+          <div style={{ width: '42px', height: '42px', borderRadius: '50%', backgroundColor: '#2d5a3f', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '18px', fontFamily: 'serif', flexShrink: 0 }}>
+            IB
+          </div>
+          <span><strong>Italiano Bari</strong><small>TRATTORIA · DAMMAM</small></span>
+        </Link>
         <nav id="site-nav" className={`site-nav ${open ? "open" : ""}`} aria-label="Main navigation">
           {links.map((link) => <Link key={link.key} href={link.href} className={link.current ? "active" : ""} aria-current={link.current ? "page" : undefined} onClick={() => setOpen(false)}>{link.label}</Link>)}
           <a className="site-nav-location" href={restaurantLinks.location} target="_blank" rel="noopener noreferrer"><MapPin size={15} />{menuCopy[language].directions}<ArrowUpRight size={12} /></a>
@@ -63,11 +68,13 @@ export function Shell({ children, hero, active, language = "en", onLanguage, onJ
     <footer className="site-footer">
       <div className="site-footer-stripe" aria-hidden="true"><i /><i /><i /></div>
       <div className="site-footer-inner">
-        <div className="site-footer-brand"><Image src="/images/italiano-bari-logo.png" alt="Italiano Bari" width={74} height={74} /><strong>Italiano Bari</strong><p>A little Italy. A lot of flavour. Pizza, pasta and little extras, made with amore in Dammam.</p></div>
+        <div className="site-footer-brand">
+          <div style={{ width: '60px', height: '60px', borderRadius: '50%', backgroundColor: '#2d5a3f', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '24px', fontFamily: 'serif', flexShrink: 0, marginBottom: '12px' }}>
+            IB
+          </div>
+          <strong>Italiano Bari</strong>
+          <p>A little Italy. A lot of flavour. Pizza, pasta and little extras, made with amore in Dammam.</p>
+        </div>
         <div><h3>Explore</h3><Link href="/menu">Our menu</Link><Link href="/?view=card">Loyalty club</Link><Link href="/?view=how">How it works</Link><Link href="/?join=1">Join the famiglia</Link></div>
-        <div><h3>Visit &amp; follow</h3><a href={restaurantLinks.location} target="_blank" rel="noopener noreferrer"><MapPin size={14} />Find us on Google Maps</a><a href={restaurantLinks.instagram} target="_blank" rel="noopener noreferrer"><InstagramIcon size={14} />Instagram</a><a href={restaurantLinks.tiktok} target="_blank" rel="noopener noreferrer"><Music2 size={14} />TikTok</a></div>
-      </div>
-      <div className="site-footer-bottom"><span>© {new Date().getFullYear()} Italiano Bari · Dammam, Saudi Arabia</span><span>Buon appetito.</span></div>
-    </footer>
-  </div>;
-}
+        <div><h3>Visit &amp; follow</h3><a href={restaurantLinks.location} target="_blank" rel="noopener noreferrer"><MapPin size={14} />Find us on Google Maps</a><a href={restaurantLinks.instagram} target="_blank" rel="noopener noreferrer"><InstagramIcon size={14} />Instagram</a><a href={restaurantLinks.tiktok} target="_blank" rel="noopener noreferrer"><
+    
