@@ -38,7 +38,7 @@
           "oldPrice": null
         }
       ],
-      "image": "/images/menu/bari-pizza.webp"
+      "image": "/menu/bari-pizza.webp"
     },
     {
       "id": "pepperoni-pizza",
@@ -62,7 +62,7 @@
           "oldPrice": null
         }
       ],
-      "image": "/images/menu/pepperoni-pizza.webp"
+      "image": "/menu/pepperoni-pizza.webp"
     },
     {
       "id": "truffle-pizza",
@@ -86,7 +86,7 @@
           "oldPrice": null
         }
       ],
-      "image": "/images/menu/truffle-pizza.webp"
+      "image": "/menu/truffle-pizza.webp"
     },
     {
       "id": "vegetables-pizza",
@@ -110,7 +110,7 @@
           "oldPrice": null
         }
       ],
-      "image": "/images/menu/vegetables-pizza.webp"
+      "image": "/menu/vegetables-pizza.webp"
     },
     {
       "id": "margherita-pizza",
@@ -134,7 +134,7 @@
           "oldPrice": null
         }
       ],
-      "image": "/images/menu/margherita-pizza.webp"
+      "image": "/menu/margherita-pizza.webp"
     },
     {
       "id": "bianca-chicken-pizza",
@@ -158,7 +158,7 @@
           "oldPrice": null
         }
       ],
-      "image": "/images/menu/bianca-chicken-pizza.webp"
+      "image": "/menu/bianca-chicken-pizza.webp"
     },
     {
       "id": "spaghetti-pasta-red-sauce",
@@ -176,7 +176,7 @@
           "oldPrice": null
         }
       ],
-      "image": "/images/menu/spaghetti-pasta-red-sauce.webp"
+      "image": "/menu/spaghetti-pasta-red-sauce.webp"
     },
     {
       "id": "penne-pasta-with-chicken-mixed-sauce",
@@ -194,7 +194,7 @@
           "oldPrice": null
         }
       ],
-      "image": "/images/menu/penne-pasta-with-chicken-mixed-sauce.webp"
+      "image": "/menu/penne-pasta-with-chicken-mixed-sauce.webp"
     },
     {
       "id": "tagliatelle-pasta-with-chicken-white-sauce",
@@ -212,7 +212,7 @@
           "oldPrice": null
         }
       ],
-      "image": "/images/menu/tagliatelle-pasta-with-chicken-white-sauce.webp"
+      "image": "/menu/tagliatelle-pasta-with-chicken-white-sauce.webp"
     },
     {
       "id": "fries",
@@ -230,7 +230,7 @@
           "oldPrice": null
         }
       ],
-      "image": "/images/menu/fries.webp"
+      "image": "/menu/fries.webp"
     },
     {
       "id": "beetroot-salad",
@@ -248,7 +248,7 @@
           "oldPrice": null
         }
       ],
-      "image": "/images/menu/beetroot-salad.webp"
+      "image": "/menu/beetroot-salad.webp"
     },
     {
       "id": "peach-salad",
@@ -266,7 +266,7 @@
           "oldPrice": null
         }
       ],
-      "image": "/images/menu/peach-salad.webp"
+      "image": "/menu/peach-salad.webp"
     },
     {
       "id": "lemon-juice",
