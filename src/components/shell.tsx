@@ -73,7 +73,7 @@ export function Shell({ children, hero, active, language = "en", onLanguage, onJ
           <p>A little Italy. A lot of flavour. Pizza, pasta and little extras, made with amore in Dammam.</p>
         </div>
         <div><h3>Explore</h3><Link href="/menu">Our menu</Link><Link href="/?view=card">Loyalty club</Link><Link href="/?view=how">How it works</Link><Link href="/?join=1">Join the famiglia</Link></div>
-        <div><h3>Visit &amp; follow</h3><a href={https://maps.app.goo.gl/QBE9p6y3tGfpQPxg8?g_st=aw.location} target="_blank" rel="noopener noreferrer"><MapPin size={14} />Find us on Google Maps</a><a href={restaurantLinks.instagram} target="_blank" rel="noopener noreferrer"><InstagramIcon size={14} />Instagram</a><a href={restaurantLinks.tiktok} target="_blank" rel="noopener noreferrer"><Music2 size={14} />TikTok</a></div>
+        <div><h3>Visit &amp; follow</h3><a href={.location} target="_blank" rel="noopener noreferrer"><MapPin size={14} />Find us on Google Maps</a><a href={restaurantLinks.instagram} target="_blank" rel="noopener noreferrer"><InstagramIcon size={14} />Instagram</a><a href={restaurantLinks.tiktok} target="_blank" rel="noopener noreferrer"><Music2 size={14} />TikTok</a></div>
       </div>
       <div className="site-footer-bottom"><span>© {new Date().getFullYear()} Italiano Bari · Dammam, Saudi Arabia</span><span>Buon appetito.</span></div>
     </footer>
